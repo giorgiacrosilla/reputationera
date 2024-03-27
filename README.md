@@ -1,2 +1,3 @@
-# aldrovandi
-implementing existing digitalized version of Aldrovandi manuscripts with automatic transcription 
+# reputation
+
+How has the reputation of an artist changed over the years? 
