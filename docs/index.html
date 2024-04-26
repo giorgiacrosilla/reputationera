@@ -1,157 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="reset.css" />
-    <!-- CSS reset -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Resource style -->
-    <script src="modernizr.js"></script>
-    <!-- Modernizr -->
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReputationEra</title>
-    <meta
-      name="keywords"
-      lang="en-us"
-      content="information visualization, de kooning, klimt, history of art"
-    />
-    <!--<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55003424-2', 'auto');
-  ga('send', 'pageview');
-
-</script>-->
-  </head>
-  <body>
-    <a class="cd-nav-trigger cd-text-replace" href="#primary-nav"
-      >Menu<span aria-hidden="true" class="cd-icon"></span
-    ></a>
-
-    <div class="cd-projects-container">
-      <ul class="cd-projects-previews">
-        <li>
-          <a href="#0">
-            <div class="cd-project-title">
-              <h2><img src="output-onlinepngtools-removebg-preview.png" style="width:300px; height: auto; margin-top: -10%;"></h2>
-              <p></p>
-            </div>
-          </a>
-        </li>
-
-        <li>
-          <a href="#0">
-            <div class="cd-project-title">
-              <h2><img src="pngwing.com.png" style="width:auto; height: 200px; margin-top: -20%;"></h2>
-              <p></p>
-            </div>
-          </a>
-        </li>
-
-        <li>
-          <a href="#0">
-            <div class="cd-project-title">
-              <h2>Comparison</h2>
-              <p></p>
-            </div>
-          </a>
-        </li>
-      </ul>
-      <!-- .cd-projects-previews -->
-
-      <ul class="cd-projects">
-        <li>
-          <div class="preview-image">
-            <div class="cd-project-title">
-              <h2>Willem de Kooning</h2>
-              <p></p>
-            </div>
-          </div>
-
-          <div class="cd-project-info">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Aspernatur eius incidunt delectus exercitationem adipisci
-              dignissimos numquam nostrum, eaque vitae fugiat cumque, similique
-              repudiandae. Libero quos autem quaerat amet laborum minus!
-            </p>
-          </div>
-          <!-- .cd-project-info -->
-        </li>
-
-        <li>
-          <div class="preview-image">
-            <div class="cd-project-title">
-              <h2>Gustav Klimt</h2>
-              <p></p>
-            </div>
-          </div>
-
-          <div class="cd-project-info">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aspernatur eius incidunt delectus exercitationem adipisci
-                dignissimos numquam nostrum, eaque vitae fugiat cumque, similique
-                repudiandae. Libero quos autem quaerat amet laborum minus!
-              </p>
-          </div>
-          <!-- .cd-project-info -->
-        </li>
-
-        <li>
-          <div class="preview-image">
-            <div class="cd-project-title">
-              <h2>Resources</h2>
-              <p>Ontologies and controlled vocabularies</p>
-            </div>
-          </div>
-
-          <div class="cd-project-info">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aspernatur eius incidunt delectus exercitationem adipisci
-                dignissimos numquam nostrum, eaque vitae fugiat cumque, similique
-                repudiandae. Libero quos autem quaerat amet laborum minus!
-              </p>
-          </div>
-          <!-- .cd-project-info -->
-        </li>
-
-        <li>
-          <div class="preview-image">
-            <div class="cd-project-title">
-              <h2>Documentation</h2>
-              <p>References to documentation and bibliography</p>
-            </div>
-          </div>
-
-          <div class="cd-project-info">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aspernatur eius incidunt delectus exercitationem adipisci
-                dignissimos numquam nostrum, eaque vitae fugiat cumque, similique
-                repudiandae. Libero quos autem quaerat amet laborum minus!
-              </p>
-          </div>
-          <!-- .cd-project-info -->
-        </li>
-      </ul>
-      <!-- .cd-projects -->
-
-      <button class="scroll cd-text-replace">Scroll</button>
+    <link rel="stylesheet" href="style_mine.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+</head>
+<body>
+    <div class="parallax" id="parallax">
+        <div class="overlay"></div>
+        <div class="parallax-text">
+            <h1 class="h1_title" contenteditable="true">ReputationEra</h1>
+            <h2 class="h2_title">A popularity journey between De Kooning and Klimt</h2>
+        </div>
+        <div class="zoom-frame" id="zoomFrame">
+            <!-- Put your content for the zooming frame here -->
+            <img src="Klimt2.png" alt="Frame" class="frame-image">
+        </div>
     </div>
-    <!-- .cd-project-container -->
+    <div class="panel" data-color="white">
+        <div>
+          <h1 class="h1_body">Explore artists' popularity</h1>
+          <p class="p_body">Check the relationship between the popularity of an artist in the <span class="bold">economic dimension</span> of the art market and in the <span class="bold">cultural dimension</span> of the general public.</p>
+          <p class="p_body">Two case studies: <span class="bold">Willem De Kooning</span> and <span class="bold">Gustav Klimt</span>.</p>
+          <img src="banner.jpg" id="banner">
+      </div>
+    </div>
+    <div class="panel" data-color="violet">
+      <h2>Violet panel</h2>
+    </div>
+    <div class="panel" data-color="indigo">
+      <h2>Indigo panel</h2>
+    </div>
+    <div class="panel" data-color="blue">
+      <h2>Blue panel</h2>
+    </div>
+    <div class="panel" data-color="green">
+      <h2>Green panel</h2>
+    </div>
+    <div class="panel" data-color="yellow">
+      <h2>Yellow panel</h2>
+    </div>
+    <div class="panel" data-color="orange">
+      <h2>Orange panel</h2>
+    </div>
+    <div class="panel" data-color="red">
+      <h2>Red panel</h2>
+    </div>
 
-    <nav class="cd-primary-nav" id="primary-nav">
+    <footer>
+      <div class="container-fluid">
+          <div class="grid-container">
+            <div class="grid-item-1">
+              <p class="text1">ReputationEra is an academic project for the exam of vmbèùopvbmaevoewa,ovceowmvcpiNEIONVCKDDDDDDDDDDDDDOWNopnvapv </p>
+              
+              <p class="text1">This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
+              <a class="text1" rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
+            </div>
+            <div class="grid-item-2">
+              <h6 >Contacts</h6>
+              <br>
+              <p class="text1"><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
+              <p class="text1"><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
+              <p class="text1"><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
+              <a href="#top"><button type="button" class="btn btn-outline-light">Back to the top</button></a>
+            </div>
+            <div class="grid-item-3">
+              <h6>Team</h6>
+              <br>
+              <button class="btn btn-outline-light" id="contact-button">
+                  <span class="person-name">Erica Andreose</span>
+                  <a href="https://github.com/EricaAndreose" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/erica-andreose-1535a7201/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+              </button>
+              <br>
+              <button class="btn btn-outline-light" id="contact-button">
+                  <span class="person-name">Giorgia Crosilla</span>
+                  <a href="https://github.com/giorgiacrosilla" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/giorgia-crosilla-9b563a215/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+              </button>
+              <br>
+              <button class="btn btn-outline-light" id="contact-button">
+                  <span class="person-name">Daniele Spedicati</span>
+                  <a href="https://github.com/SpedicatiDaniele" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/daniele-spedicati-ab02081a0/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+              </button>
+              
+                
+            </div>
+          </div>
+          <br>
+          <p style="text-align: center; font-size: smaller;">&copy; Copyright 2024 Erica Andreose, Giorgia Crosilla, Daniele Spedicati - IV project - DHDK - Alma Mater Studiorum Bologna</p>
+      </div>
 
-    </nav>
-    <!-- .cd-primary-nav -->
-    <script src="jquery-2.1.1.js"></script>
-    <script src="main.js"></script>
-    <!-- Resource jQuery -->
-  </body>
+  </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scroll_index.js"></script>
+    <script src="scroll_change.js"></script>
+</body>
 </html>

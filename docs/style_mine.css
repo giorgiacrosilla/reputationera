@@ -1,6 +1,21 @@
 @font-face {
     font-family: "paint";
-    src: url("fonts\\Painting_With_Chocolate.ttf");
+    src: url("fonts\\LEMONMILK-Regular.otf"); 
+}
+
+@font-face {
+  font-family: "paint2";
+  src: url("fonts\\AlteHaasGroteskBold.ttf");
+}
+
+@font-face {
+  font-family: "paint3";
+  src: url("fonts\\CaviarDreams.ttf");
+}
+
+@font-face {
+  font-family: "paint4";
+  src: url("fonts\\CaviarDreams_Bold.ttf");
 }
 
 body {
@@ -11,13 +26,23 @@ body {
     transition: background-color 1s ease;
 }
 
-h1 {
-    font-family: "paint";
-    font-size: 40px;
+.h1_title {
+  font-family: "paint";
+  font-size: 40px;
+  background: url("gif1.gif");
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  margin-top: -1%;
 }
 
-h2 {
-    font-family: Arial, Helvetica, sans-serif;
+.h1_title:focus {
+  outline: none;
+}
+
+.h2_title {
+    font-family: "paint2";
     font-size: 15px;
     margin-top: -10px;
     color: aliceblue;
@@ -71,13 +96,11 @@ h2 {
 /* panel styles */
 .panel {
   /* min height incase content is higher than window height */
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: sans-serif;
-  /* outline: 10px solid hotpink; */
-  /* turn above on to see the edge of panels */
+  
 }
 
 /* colours */
@@ -103,3 +126,26 @@ h2 {
   background-color: #F2293A;
 }
 
+.h1_body {
+  font-family: "paint2";
+  font-size: 40px;
+  margin-top: -5%;
+  margin-left: 4%;
+}
+
+.p_body {
+  font-family: "paint3";
+  font-size: 23px;
+  margin-left: 4%;
+  color: rgb(0, 0, 0);
+}
+
+.bold {
+  font-family: "paint4";
+  font-size: 23px;
+}
+
+#banner {
+  width: 100%;
+  
+}
