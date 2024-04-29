@@ -108,7 +108,7 @@ body {
   background-color: #fa9090;
 }
 .color-indigo {
-  background-color: #4332CF;
+  background-color: #ffbb00;
 }
 .color-blue {
   background-color: #2F8FED;
@@ -279,12 +279,14 @@ a {
   position: relative;
 }
 
+
+/* macchia colore kooning 2 */
 #part1 {
   position: absolute;
   width: 18%; /* Imposta la larghezza dell'immagine */
   z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
   transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
-  margin-top: -25%;
+  margin-top: -75%;
   margin-left: -71%;
 }
 
@@ -297,19 +299,57 @@ a {
   margin-bottom: 5%;
 }
 
+/* macchia colore kooning 2 */
 #part2 {
   position: absolute;
   width: 18%; /* Imposta la larghezza dell'immagine */
   z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
   transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
   margin-left: 75%;
-  margin-top: 55%;
+  margin-top: 3%;
 }
 
 .scroll-rotate {
   transform: rotate(108deg); /* Ruota leggermente l'immagine durante lo scrolling */
 }
 
+/* first chart */
 #myChart1 {
-  padding: 8%;
+  padding: 5%;
+}
+
+
+
+.card.border-primary:hover {
+  box-shadow:  0 0 10px #007bff; /* Colore bordo sfumato per la card con classe border-primary */
+}
+
+.card.border-success:hover {
+  box-shadow: 0 0 10px #28a745; /* Colore bordo sfumato per la card con classe border-success */
+}
+
+.card.border-warning:hover {
+  box-shadow: 0 0 10px #ffc107; /* Colore bordo sfumato per la card con classe border-warning */
+}
+
+.card.border-danger:hover {
+  box-shadow: 0 0 10px #dc3545; /* Colore bordo sfumato per la card con classe border-danger */
+}
+
+#part3 {
+  position: absolute;
+  width: 18%; /* Imposta la larghezza dell'immagine */
+  z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
+  transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
+  margin-top: -55%;
+  margin-left: -71%;
+}
+
+#part4 {
+  position: absolute;
+  width: 8%; /* Imposta la larghezza dell'immagine */
+  z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
+  transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
+  margin-top: -55%;
+  margin-left: 65%;
 }

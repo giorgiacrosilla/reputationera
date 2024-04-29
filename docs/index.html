@@ -128,12 +128,62 @@
             </ul>
           </p>
           <br>
+          
+        </div>
+
+        <div class="panel" data-color="white" id="first">   
           <br>
+          <p class="p_body">The sources of our data:</p>
+          </p>
+
+          <div class="row" style="padding: 5%;">
+            <div class="col-md-3">
+              <div class="card border-primary mb-3" style="max-width: 18rem;">
+               <a href="https://www.dekooning.org/" target="_blank" style="color: transparent;">
+                <div class="card-body text-primary">
+                  <h5 class="card-title">De Kooning Foundation</h5>
+                  <p class="card-text">A complete digital resource with everything about Willem De Kooning.</p>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-success mb-3" style="max-width: 18rem;">
+                <a href="https://github.com/jasonshi10/art_auction_valuation" target="_blank" style="color: transparent;">
+                <div class="card-body text-success">
+                  <h5 class="card-title">Blouin Art Sales Index</h5>
+                  <p class="card-text">Exaustive database with art auction records (since 1922) from over 350 auction houses.</p>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <a href="https://catalogue.bnf.fr/index.do" target="_blank" style="color: transparent;">
+                <div class="card-body text-warning">
+                  <h5 class="card-title">BnF and Google Books</h5>
+                  <p class="card-text">Open dataset for the bibliographic records exploration and extraction.</p>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card border-danger mb-3" style="max-width: 18rem;">
+                <a href="https://query.wikidata.org/" target="_blank" style="color: transparent;">
+                <div class="card-body text-danger">
+                  <h5 class="card-title">Wikidata Sparql endopoint</h5>
+                  <p class="card-text">Open service to query Wikidata information to enlarge our artists' dataset.</p>
+                </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
     
-    
+    <!-- De Kooning section -->
 
       <div class="panel" data-color="violet">
         <img src="partDK1.png" id="part1">
@@ -151,56 +201,118 @@
           
             <canvas id="myChart1"></canvas>
           
-    <script>
-        // Dati di esempio: sostituisci con i tuoi dati reali
-        var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
-        var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
+            <script>
+                // Dati di esempio: sostituisci con i tuoi dati reali
+                var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
+                var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
 
-        // Configura il grafico
-        var ctx = document.getElementById('myChart1').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [{
-                    label: 'Mean Price Variation per Year',
-                    data: meanPrices,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
-                    borderColor: 'rgba(54, 162, 235, 1)', // Colore della linea
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
-                    pointRadius: 5,
-                    pointHoverRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Mean Price Variation per Year'
-                },
-                scales: {
-                    xAxes: [{
-                        scaleLabel: {
+                // Configura il grafico
+                var ctx = document.getElementById('myChart1').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: years,
+                        datasets: [{
+                            label: 'Mean Price Variation per Year',
+                            data: meanPrices,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
+                            borderColor: 'rgba(54, 162, 235, 1)', // Colore della linea
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
+                            pointRadius: 5,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
                             display: true,
-                            labelString: 'Years'
+                            text: 'Mean Price Variation per Year'
+                        },
+                        scales: {
+                            xAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Years'
+                                }
+                            }],
+                            yAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Means'
+                                }
+                            }]
                         }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Means'
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
-        
+                    }
+                });
+            </script>
+                
   
       </div>
+
+
       <div class="panel" data-color="indigo">
-        <h2>Indigo panel</h2>
+        <img src="partK3.png" id="part3">
+        <div class="space">
+          <h1 class="h1_body">Gustav Klimt</h1>
+          <br>
+          <h2 class="h2_body">A perfect test case</h2>
+        </div>
+        <p class="p_body">We initiated our analysis with Willem de Kooning upon encountering the <span class="bold"><a style="color: black;" href="https://www.dekooning.org/" target="none">online portal of the foundation</a></span> dedicated to the artist. This website encompasses comprehensive information regarding the artist's works, sales, exhibitions, bibliographies, and more. <br>Recognizing it as a rich and authoritative resource, we leveraged it to gauge the extent of <span class="bold">completeness in the available open data</span>, which we subsequently applied to the study of the second artist in our research. Consequently, we utilized the foundation's website as a benchmark dataset to assess the completeness of the auction data, bibliographies, and exhibition records at our disposal.</p>
+
+        <img src="partK4.png" id="part4">
+        <img src="partK4.png" id="part4">
+        
+          <h2 class="h2_body" style="margin-top: 6%;">Representativeness of the data</h2>
+        
+          
+            <canvas id="myChart1"></canvas>
+          
+            <script>
+                // Dati di esempio: sostituisci con i tuoi dati reali
+                var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
+                var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
+
+                // Configura il grafico
+                var ctx = document.getElementById('myChart1').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: years,
+                        datasets: [{
+                            label: 'Mean Price Variation per Year',
+                            data: meanPrices,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
+                            borderColor: 'rgba(54, 162, 235, 1)', // Colore della linea
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
+                            pointRadius: 5,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: 'Mean Price Variation per Year'
+                        },
+                        scales: {
+                            xAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Years'
+                                }
+                            }],
+                            yAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Means'
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
       </div>
       <div class="panel" data-color="blue">
         <h2>Blue panel</h2>
@@ -221,22 +333,26 @@
 
     <footer>
       <div class="container-fluid">
-          <div class="grid-container">
-            <div class="grid-item-1">
-              <p class="text1">ReputationEra is an academic project for the exam of vmbèùopvbmaevoewa,ovceowmvcpiNEIONVCKDDDDDDDDDDDDDOWNopnvapv </p>
+          <div class="row">
+            <div class="col-md-5">
+              <p class="p_body">ReputationEra is an academic project for the exam of Information Visualization 2023/2024 held by Professor Marilena Daquino. </p>
               
-              <p class="text1">This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
-              <a class="text1" rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
-            </div>
-            <div class="grid-item-2">
-              <h6 >Contacts</h6>
+              <p class="p_body">This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
               <br>
-              <p class="text1"><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
-              <p class="text1"><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
-              <p class="text1"><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
+              <a class="p_body" rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
+            </div>
+            <div class="col-md-3">
+              <h6 style="font-family: paint4;">Contacts</h6>
+              <br>
+              <p class="p_body"><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
+              <br>
+              <p class="p_body"><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
+              <br>
+              <p class="p_body"><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
+              <br>
               <a href="#top"><button type="button" class="btn btn-outline-light">Back to the top</button></a>
             </div>
-            <div class="grid-item-3">
+            <div class="col-md-3">
               <h6>Team</h6>
               <br>
               <button class="btn btn-outline-light" id="contact-button">
