@@ -86,7 +86,7 @@
             <div class="image-container">
               <img src="pink.png" style="width: 100%;" class="image-front" id="try">
               <div class="image-front-text">Cultural data</div>
-              <div class="image-back"><p>Catalog of exhibitions</p>
+              <div class="image-back"><p>Exhibition records</p>
                 <p>Editorial publications</p></div>
             </div>
 
@@ -122,9 +122,7 @@
           <p class="p_body">
             <ul class="p_body">
               <li class="p_body">Quantitative similarity in auction data, enabling us to conduct a <span class="bold">balanced comparison</span>.</li>
-              <li class="p_body">Similar <span class="bold">time coverage</span> of the data period.</li>
-              <li class="p_body">Possibility of using De Kooning as a reference for evaluating the <span class="bold">completeness of data</span> and research results.</li>
-              <li class="p_body">Observation of Klimt as a fresh case study and for <span class="bold">final comparison</span> between the two artists.</li>
+              <li class="p_body">Similar <span class="bold">time coverage</span> of the data period of our datasets.</li>
             </ul>
           </p>
           <br>
@@ -161,18 +159,18 @@
               <div class="card border-warning mb-3" style="max-width: 18rem;">
                 <a href="https://catalogue.bnf.fr/index.do" target="_blank" style="color: transparent;">
                 <div class="card-body text-warning">
-                  <h5 class="card-title">BnF and Google Books</h5>
-                  <p class="card-text">Open dataset for the bibliographic records exploration and extraction.</p>
+                  <h5 class="card-title">BnF</h5>
+                  <p class="card-text">A vast digital library preserving international cultural heritage through extensive collections and archives.</p>
                 </div>
                 </a>
               </div>
             </div>
             <div class="col-md-3">
               <div class="card border-danger mb-3" style="max-width: 18rem;">
-                <a href="https://query.wikidata.org/" target="_blank" style="color: transparent;">
+                <a href="https://developers.google.com/books?hl=en" target="_blank" style="color: transparent;">
                 <div class="card-body text-danger">
-                  <h5 class="card-title">Wikidata Sparql endopoint</h5>
-                  <p class="card-text">Open service to query Wikidata information to enlarge our artists' dataset.</p>
+                  <h5 class="card-title">Google Books API</h5>
+                  <p class="card-text">Interface granting access to Google Books' vast collection, enabling search, retrieval, and integration.</p>
                 </div>
                 </a>
               </div>
@@ -187,132 +185,113 @@
 
       <div class="panel" data-color="violet">
         <img src="partDK1.png" id="part1">
+        <img src="partDK2.png" id="part2">
         <div class="space">
           <h1 class="h1_body">Willem De Kooning</h1>
           <br>
-          <h2 class="h2_body">How much can we trust our data and our results?</h2>
-        </div>
-        <p class="p_body">We initiated our analysis with Willem de Kooning upon encountering the <span class="bold"><a style="color: black;" href="https://www.dekooning.org/" target="none">online portal of the foundation</a></span> dedicated to the artist. This website encompasses comprehensive information regarding the artist's works, sales, exhibitions, bibliographies, and more. <br>Recognizing it as a rich and authoritative resource, we leveraged it to gauge the extent of <span class="bold">completeness in the available open data</span>, which we subsequently applied to the study of the second artist in our research. Consequently, we utilized the foundation's website as a benchmark dataset to assess the completeness of the auction data, bibliographies, and exhibition records at our disposal.</p>
-
-        <img src="partDK2.png" id="part2">
-        
-          <h2 class="h2_body" style="margin-top: 6%;">Representativeness of the data</h2>
-        
-          
-            <canvas id="myChart1"></canvas>
-          
-            <script>
-                // Dati di esempio: sostituisci con i tuoi dati reali
-                var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
-                var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
-
-                // Configura il grafico
-                var ctx = document.getElementById('myChart1').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: years,
-                        datasets: [{
-                            label: 'Mean Price Variation per Year',
-                            data: meanPrices,
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
-                            borderColor: 'rgba(54, 162, 235, 1)', // Colore della linea
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
-                            pointRadius: 5,
-                            pointHoverRadius: 8
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: 'Mean Price Variation per Year'
-                        },
-                        scales: {
-                            xAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Years'
-                                }
-                            }],
-                            yAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Means'
-                                }
-                            }]
-                        }
-                    }
-                });
-            </script>
-                
-  
-      </div>
-
-
-      <div class="panel" data-color="indigo">
-        <img src="partK3.png" id="part3">
-        <div class="space">
-          <h1 class="h1_body">Gustav Klimt</h1>
+          <h2 class="h2_body">A "ground truth" case study</h2>
           <br>
-          <h2 class="h2_body">A perfect test case</h2>
+          <h2 class="h2_body">How much can we trust our data and results?</h2>
         </div>
         <p class="p_body">We initiated our analysis with Willem de Kooning upon encountering the <span class="bold"><a style="color: black;" href="https://www.dekooning.org/" target="none">online portal of the foundation</a></span> dedicated to the artist. This website encompasses comprehensive information regarding the artist's works, sales, exhibitions, bibliographies, and more. <br>Recognizing it as a rich and authoritative resource, we leveraged it to gauge the extent of <span class="bold">completeness in the available open data</span>, which we subsequently applied to the study of the second artist in our research. Consequently, we utilized the foundation's website as a benchmark dataset to assess the completeness of the auction data, bibliographies, and exhibition records at our disposal.</p>
 
-        <img src="partK4.png" id="part4">
-        <img src="partK4.png" id="part4">
+        
         
           <h2 class="h2_body" style="margin-top: 6%;">Representativeness of the data</h2>
+          <h2 class="h2_body">EXHIBITIONS DATA</h2>
+          <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
         
           
             <canvas id="myChart1"></canvas>
+            <p id="chartCaption" >
+              Questa è una caption descrittiva per il grafico
+            </p>
           
             <script>
-                // Dati di esempio: sostituisci con i tuoi dati reali
-                var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
-                var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
+              // Dati di esempio: sostituisci con i tuoi dati reali
+              var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
+              var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
+          
+              // Configura il grafico
+              var ctx = document.getElementById('myChart1').getContext('2d');
+              var myChart = new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                      labels: years,
+                      datasets: [{
+                          label: 'Mean Price Variation per Year',
+                          data: meanPrices,
+                          backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
+                          borderColor: 'yellow', // Colore della linea
+                          borderWidth: 2,
+                          pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
+                          pointRadius: 5,
+                          pointHoverRadius: 8
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      title: {
+                          display: true,
+                          text: 'Mean Price Variation per Year'
+                      },
+                      scales: {
+                          xAxes: [{
+                              scaleLabel: {
+                                  display: true,
+                                  labelString: 'Years'
+                              }
+                          }],
+                          yAxes: [{
+                              scaleLabel: {
+                                  display: true,
+                                  labelString: 'Means'
+                              },
+                              ticks: {
+                                  fontColor: 'black' // Colore del testo sull'asse y
+                              },
+                              gridLines: {
+                                  color: 'black' // Colore delle linee della griglia sull'asse y
+                              }
+                          }]
+                      },
+                  }
+              });
+          
+          </script>
+             
+        <p class="p_body">In our research we considered also the number of exibitions and the venue of the exibitions as parameters in order to check whether the reputation of the artist has changed over the years. However, no complete dataset on artists' exhibitions was found. In order to get an idea on how many exibitions have been covered on catalogues, and, in particular, how many exhibitions are traced by bibliographic records on BnF and Gallica, we needed a "ground truth" to state if those sources of information could be somehow comprehensive. 
 
-                // Configura il grafico
-                var ctx = document.getElementById('myChart1').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: years,
-                        datasets: [{
-                            label: 'Mean Price Variation per Year',
-                            data: meanPrices,
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
-                            borderColor: 'rgba(54, 162, 235, 1)', // Colore della linea
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
-                            pointRadius: 5,
-                            pointHoverRadius: 8
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: 'Mean Price Variation per Year'
-                        },
-                        scales: {
-                            xAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Years'
-                                }
-                            }],
-                            yAxes: [{
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Means'
-                                }
-                            }]
-                        }
-                    }
-                });
-            </script>
+          The case study is Willem de Kooning, since all data about exibitions are uploaded on the website of the Willem de Kooning Foundation. 
+          The result of the webscraping are shown here, with a total of 131 exhibitions, 81 possess a catalogue. 
+          
+        </p>
+        <br>
+        <h2 class="h2_body">What is the percentage of completeness?</h2>
+        <div class="counter" data-count="35">0</div>
+
+             
+      </div>
+      <div class="panel" data-color="indigo">
+        <div class="space">
+          <h1 class="h1_body">Klimt vs De Kooning</h1>
+          <br>
+          <h2 class="h2_body">A case study comparison</h2>
+          <br>
+          <h2 class="h2_body">Is there a correlation?</h2>
+          <p class="p_body">As we have seen, the two artists exhibit similar data in terms of sales (both in terms of the number of works sold and the price range and temporal availability of the data). Now that we know the accuracy and completeness percentage of the open data we have, we can move on to a phase of comparing the research results between Willem De Kooning and Gustav Klimt.</p>
+          <br>
+          <br>
+          <h2 class="h2_body">AUCTIONS DATA</h2>
+          <p class="p_body">The analysis begins with the observation of the auction house dataset, where we understand how the quotes of the two artists change and evolve over time. Our analyses focus on the relationship between the number of works sold, price trends, and their averages over the years 2000-2010.</p>
+        </div>
+        
+
+        
+        
+          <h2 class="h2_body" style="margin-top: 6%;">Representativeness of the data</h2>
+          <h2 class="h2_body">EXHIBITIONS DATA</h2>
+          <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
       </div>
       <div class="panel" data-color="blue">
         <h2>Blue panel</h2>
@@ -387,6 +366,7 @@
     <script src="scroll_index.js"></script>
     <script src="scroll_change.js"></script>
     <script src="rotate.js"></script>
+    <script src="counter.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

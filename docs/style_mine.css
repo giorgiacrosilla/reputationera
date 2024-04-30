@@ -136,10 +136,12 @@ body {
 .p_body {
   font-family: "paint3";
   font-size: 17px;
-  margin-left: 4%;
+  margin-left: 2%;
+  margin-right: 2%;
   color: rgb(0, 0, 0);
   margin-top: 2%;
   margin-bottom: -2%;
+  text-align: justify;
 }
 
 .bold {
@@ -273,8 +275,6 @@ a {
   color: aliceblue;
 }
 
-
-
 .panel {
   position: relative;
 }
@@ -283,7 +283,7 @@ a {
 /* macchia colore kooning 2 */
 #part1 {
   position: absolute;
-  width: 18%; /* Imposta la larghezza dell'immagine */
+  width: 20%; /* Imposta la larghezza dell'immagine */
   z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
   transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
   margin-top: -75%;
@@ -302,11 +302,11 @@ a {
 /* macchia colore kooning 2 */
 #part2 {
   position: absolute;
-  width: 18%; /* Imposta la larghezza dell'immagine */
+  width: 21%; /* Imposta la larghezza dell'immagine */
   z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
   transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
   margin-left: 75%;
-  margin-top: 3%;
+  margin-top: -90%;
 }
 
 .scroll-rotate {
@@ -315,10 +315,8 @@ a {
 
 /* first chart */
 #myChart1 {
-  padding: 5%;
+  padding: 4%;
 }
-
-
 
 .card.border-primary:hover {
   box-shadow:  0 0 10px #007bff; /* Colore bordo sfumato per la card con classe border-primary */
@@ -352,4 +350,8 @@ a {
   transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
   margin-top: -55%;
   margin-left: 65%;
+}
+
+#map {
+  height: 600px;
 }
