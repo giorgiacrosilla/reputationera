@@ -136,8 +136,8 @@ body {
 .p_body {
   font-family: "paint3";
   font-size: 17px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 6%;
+  margin-right: 4%;
   color: rgb(0, 0, 0);
   margin-top: 2%;
   margin-bottom: -2%;
@@ -313,10 +313,6 @@ a {
   transform: rotate(108deg); /* Ruota leggermente l'immagine durante lo scrolling */
 }
 
-/* first chart */
-#myChart1 {
-  padding: 4%;
-}
 
 .card.border-primary:hover {
   box-shadow:  0 0 10px #007bff; /* Colore bordo sfumato per la card con classe border-primary */
@@ -352,6 +348,28 @@ a {
   margin-left: 65%;
 }
 
-#map {
-  height: 600px;
+#div_myChart1 {
+  display: block;
+  margin-top: 3%;
+  background-color: aliceblue;
+  border-radius: 15px;
+}
+
+#chartCaption {
+  margin-top: 2%;
+  text-align: center;
+}
+
+#div_myChart2 {
+  display: block;
+  margin-top: 4%;
+  background-color: aliceblue;
+  border-radius: 15px;
+}
+
+#div_myChart3 {
+  display: block;
+  margin-top: 4%;
+  background-color: aliceblue;
+  border-radius: 15px;
 }

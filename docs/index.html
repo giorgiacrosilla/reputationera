@@ -101,16 +101,16 @@
         <div class="row">
           <div class="col-md-6">
             <div class="panel">
-              <img src="Gkport.png" style="width: 55%;">
-              <img src="klimt_firma.png" style="width: 50%;">
-              <p class="p_body">1862 - 1918</p>
+              <img src="DKport.png" style="width: 70%;">
+              <img src="kooning_frima.png" style="width: 60%;">
+              <p class="p_body" style="margin-top: 5.5%">1904 - 1997</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="panel">
-              <img src="DKport.png" style="width: 70%;">
-              <img src="kooning_frima.png" style="width: 60%;">
-              <p class="p_body" style="margin-top: 5.5%">1904 - 1997</p>
+              <img src="Gkport.png" style="width: 55%;">
+              <img src="klimt_firma.png" style="width: 50%;">
+              <p class="p_body">1862 - 1918</p>
             </div>
           </div>
         </div>
@@ -203,15 +203,11 @@
           <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
         
           <div class="plot" id="div_myChart1">
-            <canvas id="myChart1"></canvas>
-            <p id="chartCaption" >
+            <canvas id="myChart1" width="800" height="400"></canvas>
+            <p id="chartCaption">
               Questa è una caption descrittiva per il grafico
             </p>
-          
-            <canvas id="myChart1" width="800" height="400"></canvas>
-            <!-- <p id="chartCaption" >
-              Questa è una caption descrittiva per il grafico
-            </p> -->
+
           
             <script>
               // Load the CSV data
@@ -220,6 +216,7 @@
                   .then(csvData => {
                       const data = [];
                       const labels = [];
+                      
                       const rows = csvData.trim().split('\n').slice(2); // Skip the header
       
                       rows.forEach(row => {
@@ -275,20 +272,19 @@
                           }
                       });
                   });
-          </script>
+            </script>
           </div>
+          <br>
+
+          <h2 class="h2_body">EXHIBITIONS DATA</h2>
+          <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
 
           <div class="plot" id="div_myChart2">
-            <canvas id="myChart2"></canvas>
+            <canvas id="myChart2" width="800" height="400"></canvas>
             <p id="chartCaption" >
               Questa è una caption descrittiva per il grafico
             </p>
           
-            <canvas id="myChart2" width="800" height="400"></canvas>
-            <!-- <p id="chartCaption" >
-              Questa è una caption descrittiva per il grafico
-            </p> -->
-
             <script>
               // Load the CSV data
               fetch('data/soldtime_merge_df.csv')
@@ -351,19 +347,17 @@
                           }
                       });
                   });
-          </script>
-        </div>
+            </script>
+          </div>
+        
 
         <div class="plot" id="div_myChart3">
-          <canvas id="myChart3"></canvas>
+          <canvas id="myChart3" width="800" height="400"></canvas>
           <p id="chartCaption" >
             Questa è una caption descrittiva per il grafico
           </p>
-        
-          <canvas id="myChart3" width="800" height="400"></canvas>
-          <!-- <p id="chartCaption" >
-            Questa è una caption descrittiva per il grafico
-          </p> -->
+      
+          
 
           <script>
             // Load the CSV data
