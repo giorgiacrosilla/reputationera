@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style_mine.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
 <body>
@@ -100,16 +101,16 @@
         <div class="row">
           <div class="col-md-6">
             <div class="panel">
-              <img src="Gkport.png" style="width: 55%;">
-              <img src="klimt_firma.png" style="width: 50%;">
-              <p class="p_body">1862 - 1918</p>
+              <img src="DKport.png" style="width: 70%;">
+              <img src="kooning_frima.png" style="width: 60%;">
+              <p class="p_body" style="margin-top: 5.5%">1904 - 1997</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="panel">
-              <img src="DKport.png" style="width: 70%;">
-              <img src="kooning_frima.png" style="width: 60%;">
-              <p class="p_body" style="margin-top: 5.5%">1904 - 1997</p>
+              <img src="Gkport.png" style="width: 55%;">
+              <img src="klimt_firma.png" style="width: 50%;">
+              <p class="p_body">1862 - 1918</p>
             </div>
           </div>
         </div>
@@ -201,64 +202,304 @@
           <h2 class="h2_body">EXHIBITIONS DATA</h2>
           <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
         
+          <div class="plot" id="div_myChart1">
+            <canvas id="myChart1" width="800" height="400"></canvas>
+            <p id="chartCaption">
+              Questa è una caption descrittiva per il grafico
+            </p>
+
           
-            <canvas id="myChart1"></canvas>
+            <script>
+              // Load the CSV data
+              fetch('data/greater_10_filtered.csv')
+                  .then(response => response.text())
+                  .then(csvData => {
+                      const data = [];
+                      const labels = [];
+                      
+                      const rows = csvData.trim().split('\n').slice(2); // Skip the header
+      
+                      rows.forEach(row => {
+                          const [artist, numAuctions] = row.split(',');
+                          labels.push(artist);
+                          data.push(parseInt(numAuctions));
+                      });
+      
+                      // Create the chart
+                      const ctx = document.getElementById('myChart1').getContext('2d');
+                      const myChart = new Chart(ctx, {
+                          type: 'bar',
+                          data: {
+                              labels: labels,
+                              datasets: [{
+                                  label: 'Number of Auctions',
+                                  data: data,
+                                  backgroundColor: '#86469C'
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  xAxes: [{
+                                      ticks: {
+                                          autoSkip: false,
+                                          maxRotation: 45,
+                                          minRotation: 45,
+                                          fontColor: '#352f36'
+                                      },
+                                      gridLines: {
+                                          color: 'gray'
+                                      }
+                                  }],
+                                  yAxes: [{
+                                      ticks: {
+                                          fontColor: '#352f36'
+                                      },
+                                      gridLines: {
+                                          color: 'gray'
+                                      }
+                                  }]
+                              },
+                              title: {
+                                  display: true,
+                                  text: 'Auctions performed by artist',
+                                  fontColor: '#352f36'
+                              },
+                              legend: {
+                                  labels: {
+                                      fontColor: '#352f36'
+                                  }
+                              }
+                          }
+                      });
+                  });
+            </script>
+          </div>
+          <br>
+
+          <h2 class="h2_body">EXHIBITIONS DATA</h2>
+          <p class="p_body">Analizing the dataset we noticed that 307 works over a total of 381 possess data about price and time of the transaction.</p>
+
+          <div class="plot" id="div_myChart2">
+            <canvas id="myChart2" width="800" height="400"></canvas>
             <p id="chartCaption" >
               Questa è una caption descrittiva per il grafico
             </p>
           
             <script>
-              // Dati di esempio: sostituisci con i tuoi dati reali
-              var years = [2008, 2009, 2010, 2011, 2012, 2013, 2014];
-              var meanPrices = [779880.60, 760305.76, 978857.88, 712840.71, 1084915.24, 1507841.98, 2118624.23];
-          
-              // Configura il grafico
-              var ctx = document.getElementById('myChart1').getContext('2d');
-              var myChart = new Chart(ctx, {
-                  type: 'line',
-                  data: {
-                      labels: years,
-                      datasets: [{
-                          label: 'Mean Price Variation per Year',
-                          data: meanPrices,
-                          backgroundColor: 'rgba(54, 162, 235, 0.2)', // Colore di riempimento dell'area sotto la linea
-                          borderColor: 'yellow', // Colore della linea
-                          borderWidth: 2,
-                          pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Colore dei punti
-                          pointRadius: 5,
-                          pointHoverRadius: 8
-                      }]
-                  },
-                  options: {
-                      responsive: true,
-                      title: {
-                          display: true,
-                          text: 'Mean Price Variation per Year'
-                      },
-                      scales: {
-                          xAxes: [{
-                              scaleLabel: {
+              // Load the CSV data
+              fetch('data/soldtime_merge_df.csv')
+                  .then(response => response.text())
+                  .then(csvData => {
+                      const labels = [];
+                      const deKooningData = [];
+                      const klimtData = [];
+                      const rows = csvData.trim().split('\n').slice(1); // Skip the header
+      
+                      rows.forEach(row => {
+                          const [timesSold, deKooningCount, klimtCount] = row.split(',');
+                          labels.push(timesSold);
+                          deKooningData.push(parseInt(deKooningCount));
+                          klimtData.push(parseInt(klimtCount));
+                      });
+      
+                      // Create the chart
+                      const ctx = document.getElementById('myChart2').getContext('2d');
+                      const myChart = new Chart(ctx, {
+                          type: 'bar',
+                          data: {
+                              labels: labels,
+                              datasets: [
+                                  {
+                                      label: 'De Kooning',
+                                      backgroundColor: '#E97D01',
+                                      data: deKooningData
+                                  },
+                                  {
+                                      label: 'Klimt',
+                                      backgroundColor: '#26408B',
+                                      data: klimtData
+                                  }
+                              ]
+                          },
+                          options: {
+                              title: {
                                   display: true,
-                                  labelString: 'Years'
-                              }
-                          }],
-                          yAxes: [{
-                              scaleLabel: {
-                                  display: true,
-                                  labelString: 'Means'
+                                  text: 'Frequency of Count Values',
+                                  fontColor: '#352f36'
                               },
-                              ticks: {
-                                  fontColor: 'black' // Colore del testo sull'asse y
+                              legend: {
+                                  labels: {
+                                      fontColor: '#352f36'
+                                  }
                               },
-                              gridLines: {
-                                  color: 'black' // Colore delle linee della griglia sull'asse y
+                              scales: {
+                                  xAxes: [{
+                                      ticks: {
+                                          fontColor: '#352f36'
+                                      }
+                                  }],
+                                  yAxes: [{
+                                      ticks: {
+                                          fontColor: '#352f36'
+                                      }
+                                  }]
                               }
-                          }]
-                      },
-                  }
-              });
+                          }
+                      });
+                  });
+            </script>
+          </div>
+        
+
+        <div class="plot" id="div_myChart3">
+          <canvas id="myChart3" width="800" height="400"></canvas>
+          <p id="chartCaption" >
+            Questa è una caption descrittiva per il grafico
+          </p>
+      
           
+
+          <script>
+            // Load the CSV data
+            fetch('data/selling_per_year.csv')
+                .then(response => response.text())
+                .then(csvData => {
+                    const labels = [];
+                    const deKooningCount = [];
+                    const klimtCount = [];
+                    const rows = csvData.trim().split('\n').slice(1); // Skip the header
+    
+                    rows.forEach(row => {
+                        const [soldTime, deKooning, klimt] = row.split(',');
+                        labels.push(soldTime);
+                        deKooningCount.push(parseInt(deKooning));
+                        klimtCount.push(parseInt(klimt));
+                    });
+    
+                    // Create the chart
+                    const ctx = document.getElementById('myChart3').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: 'De Kooning Count',
+                                    data: deKooningCount,
+                                    borderColor: '#E97D01',
+                                    backgroundColor: 'rgba(0, 0, 0, 0)'
+                                },
+                                {
+                                    label: 'Klimt Count',
+                                    data: klimtCount,
+                                    borderColor: '#26408B',
+                                    backgroundColor: 'rgba(0, 0, 0, 0)'
+                                }
+                            ]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Counts Over Time',
+                                fontColor: '#352f36'
+                            },
+                            legend: {
+                                labels: {
+                                    fontColor: '#352f36'
+                                }
+                            },
+                            scales: {
+                                xAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Sold Time',
+                                        fontColor: '#352f36'
+                                    },
+                                    ticks: {
+                                        fontColor: '#352f36'
+                                    }
+                                }],
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Count',
+                                        fontColor: '#352f36'
+                                    },
+                                    ticks: {
+                                        fontColor: '#352f36'
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                });
           </script>
+        
+        </div>
+
+        <div class="plot" id="div_myChart4">
+          <canvas id="myChart4"></canvas>
+          <p id="chartCaption" >
+            Questa è una caption descrittiva per il grafico
+          </p>
+        
+          <canvas id="myChart4" width="800" height="400"></canvas>
+
+          <!-- <p id="chartCaption" >
+            Questa è una caption descrittiva per il grafico
+          </p> -->
+
+          <script>
+            // Load data from CSV files (replace with your actual file paths)
+            const countDataDK = 'data/rounded_count_dk.csv'; // Example count data for DK
+            const meanPriceDataDK = 'data/mean_price_per_year_dk.csv'; // Example mean price data for DK
+            const countDataK = 'data/rounded_count_k.csv'; // Example count data for K
+            const meanPriceDataK = 'data/mean_price_per_year_k.csv'; // Example mean price data for K
+    
+            // Function to load CSV data
+            async function loadCSVData(filePath) {
+                try {
+                    const response = await fetch(filePath);
+                    const text = await response.text();
+                    return text.split('\n').map(row => row.split(',').map(Number));
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    return null;
+                }
+            }
+    
+            // Load data and create the custom chart
+            Promise.all([
+                loadCSVData(countDataDK),
+                loadCSVData(meanPriceDataDK),
+                loadCSVData(countDataK),
+                loadCSVData(meanPriceDataK),
+            ]).then(([countDataDK, meanPriceDataDK, countDataK, meanPriceDataK]) => {
+                if (countDataDK && meanPriceDataDK && countDataK && meanPriceDataK) {
+                    const ctx = document.getElementById('myChart4').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar', // Scatter plot as a bar chart
+                        data: {
+                            // Your data and datasets here...
+                        },
+                        options: {
+                            // Your chart options here...
+                        },
+                    });
+                } else {
+                    console.error('Data loading failed. Check file paths and data format.');
+                }
+            });
+        </script>
+
+
+        </div>
+
+
+
+
+
+
              
         <p class="p_body">In our research we considered also the number of exibitions and the venue of the exibitions as parameters in order to check whether the reputation of the artist has changed over the years. However, no complete dataset on artists' exhibitions was found. In order to get an idea on how many exibitions have been covered on catalogues, and, in particular, how many exhibitions are traced by bibliographic records on BnF and Gallica, we needed a "ground truth" to state if those sources of information could be somehow comprehensive. 
 
