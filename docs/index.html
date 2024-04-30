@@ -438,12 +438,12 @@
         </div>
 
         <div class="plot" id="div_myChart4">
-          <canvas id="myChart4"></canvas>
+          <canvas id="myChart4" width="800" height="400"></canvas>
           <p id="chartCaption" >
             Questa è una caption descrittiva per il grafico
           </p>
         
-          <canvas id="myChart4" width="800" height="400"></canvas>
+          
 
           <!-- <p id="chartCaption" >
             Questa è una caption descrittiva per il grafico
@@ -492,8 +492,214 @@
             });
         </script>
 
+      </div>
 
+        
+
+      <div class="plot" id="div_myChart5">
+        <canvas id="myChart5" width="800" height="400"></canvas>
+          <p id="chartCaption">
+            Questa è una caption descrittiva per il grafico
+          </p>
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        
+
+        <script>
+            // Load data from CSV file
+            fetch('../docs/data/comparison_publication_per_year.csv')
+                .then(response => response.text())
+                .then(csvData => {
+                    // Parse CSV data using PapaParse
+                    const parsedData = Papa.parse(csvData, { header: true });
+
+                    // Initialize variables to store data
+                    const years = {};
+
+                    // Process parsed CSV data
+                    parsedData.data.forEach(row => {
+                        const year = row.date;
+                        const category = row.category;
+
+                        // Increment publication count for the category and year
+                        if (!years[year]) years[year] = { 'DK': 0, 'K': 0 };
+                        years[year][category]++;
+                    });
+
+                    // Extract dates and counts for each category
+                    const dates = Object.keys(years).sort();
+                    const countsDK = dates.map(date => years[date]['DK']);
+                    const countsK = dates.map(date => years[date]['K']);
+
+                    // Create the chart
+                    const ctx = document.getElementById('myChart5').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: dates,
+                            datasets: [{
+                                label: 'De Kooning Count',
+                                backgroundColor: '#E97D01',
+                                data: countsDK,
+                            }, {
+                                label: 'Klimt Count',
+                                backgroundColor: '#26408B',
+                                data: countsK,
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Distribution of Publication Years',
+                                fontColor: '#352f36'
+                            },
+                            legend: {
+                                labels: {
+                                    fontColor: '#352f36'
+                                }
+                            },
+                            scales: {
+                                xAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Date',
+                                        fontColor: '#352f36'
+                                    },
+                                    ticks: {
+                                        fontColor: '#352f36'
+                                    }
+                                }],
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Count',
+                                        fontColor: '#352f36'
+                                    },
+                                    ticks: {
+                                        fontColor: '#352f36',
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                });
+        </script>
+      </div>
+
+        
+        
+      <div class="plot" id="div_myChart6">
+        <canvas id="myChart6" width="800" height="400"></canvas>
+        <p id="chartCaption">
+            Questa è una caption descrittiva per il grafico
+        </p>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    
+        <script>
+          // Load data from CSV file
+          fetch('../docs/data/comparison_exhibition_per_year.csv')
+              .then(response => response.text())
+              .then(csvData => {
+                  // Parse CSV data using PapaParse
+                  const parsedData = Papa.parse(csvData, { header: true });
+  
+                  // Initialize variables to store data
+                  const years = {};
+  
+                  // Process parsed CSV data
+                  parsedData.data.forEach(row => {
+                      const year = row.date;
+                      const exhibitionsDK = parseFloat(row['Exhibitions DK']) || 0;
+                      const exhibitionsK = parseFloat(row['Exhibitions K']) || 0;
+  
+                      // Store exhibition counts for the year
+                      years[year] = { 'DK': exhibitionsDK, 'K': exhibitionsK };
+                  });
+  
+                  // Extract dates and counts for each category
+                  const dates = Object.keys(years).sort();
+                  const countsDK = dates.map(date => years[date]['DK']);
+                  const countsK = dates.map(date => years[date]['K']);
+  
+                  // Create the chart
+                  const ctx = document.getElementById('myChart6').getContext('2d');
+                  new Chart(ctx, {
+                      type: 'line', // Tipo di grafico: linea
+                      data: {
+                          labels: dates,
+                          datasets: [{
+                              label: 'De Kooning Exhibitions',
+                              borderColor: '#E97D01', // Colore del bordo
+                              fill: false, // Disabilita il riempimento sotto la linea
+                              data: countsDK,
+                          }, {
+                              label: 'Klimt Exhibitions',
+                              borderColor: '#26408B', // Colore del bordo
+                              fill: false, // Disabilita il riempimento sotto la linea
+                              data: countsK,
+                          }]
+                      },
+                      options: {
+                          title: {
+                              display: true,
+                              text: 'Distribution of Exhibition Years',
+                              fontColor: '#352f36'
+                          },
+                          legend: {
+                              labels: {
+                                  fontColor: '#352f36'
+                              }
+                          },
+                          scales: {
+                              xAxes: [{
+                                  scaleLabel: {
+                                      display: true,
+                                      labelString: 'Date',
+                                      fontColor: '#352f36'
+                                  },
+                                  ticks: {
+                                      fontColor: '#352f36'
+                                  }
+                              }],
+                              yAxes: [{
+                                  scaleLabel: {
+                                      display: true,
+                                      labelString: 'Count',
+                                      fontColor: '#352f36'
+                                  },
+                                  ticks: {
+                                      fontColor: '#352f36',
+                                      beginAtZero: true
+                                  }
+                              }]
+                          }
+                      }
+                  });
+              })
+              .catch(error => {
+                  console.error('Error loading data:', error);
+              });
+      </script>
+    </div>
+    
+        
+        
         </div>
+        
+        
+        
+        
+        
+        
+
+
+  
 
 
 
