@@ -30,15 +30,27 @@
       <div class="panel" data-color="white">
           <div>
             <h1 class="h1_body">Explore artists' reputation</h1>
-            <br>
-            <h2 class="h2_body" style="color: #352f36;">What do we mean by <span style="text-decoration: underline;">reputation</span>?</h2>
-            <p class="p_body"><span style="font-style: italic;">Reputation is not popularity!</span><br> By reputation we mean the economic and cultural value of the artist's figure, which is defined through his positioning in the art market, the number of studies and publications about him and the number of exhibitions.</p>
-            <br>
-            <br>
-            <h2 class="h2_body" style="color: #352f36;">What are we looking for?</h2>
-            <p class="p_body">We want to check the relationship between the estimation of an artist in the <span style="font-weight: bold;">economic dimension</span> of the art market and in the <span style="font-weight: bold;">cultural dimension</span> of the general public.</p>
-            <br>
-            <br>
+
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
+                <br>
+                <h2 style="color: #352f36; font-family: Roboto; text-align: center;"> Reputation is not popularity</h2>
+                <p style=" font-family: Roboto;"> By reputation we mean the economic and cultural value of the artist's figure, which is defined through his positioning in the art market, the number of studies and publications about him and the number of exhibitions.</p>
+                <br>
+                <br>
+              </div>
+              <br>
+              <div class="col-md-5">
+                <br>
+                <h2 style="color: #352f36; font-family: Roboto; text-align: center;">What are we looking for?</h2>
+                <p style=" font-family: Roboto;">We want to check the relationship between the estimation of an artist in the <span style="font-weight: bold;">economic dimension</span> of the art market and in the <span style="font-weight: bold;">cultural dimension</span> of the general public.</p>
+                <br>
+                <br>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
             <h2 class="h2_body" style="color: #352f36;">What data do we need to observe?</h2>
             <br>
           </div>
@@ -248,7 +260,7 @@
         </div>
 
         
-    
+
     <!-- De Kooning section -->
 
       <div class="panel" data-color="violet">
@@ -262,13 +274,45 @@
           <h2 class="h2_body">How much can we trust our data and results?</h2>
         </div>
         <p class="p_body" style="text-align: justify; margin-top: -2em;" >We initiated our analysis with Willem de Kooning upon encountering the <span class="bold"><a style="color: black;" href="https://www.dekooning.org/" target="none">online portal of the foundation</a></span> dedicated to the artist. This website encompasses comprehensive information regarding the artist's works, sales, exhibitions, bibliographies, and more. </p>
-
-        
         
           <h2 class="h2_body" style="margin-top: 6%;">REPRESENTATIVENESS OF DATA</h2>
           <h2 class="h2_body">Exhibitions data</h2>
           <p class="p_body">We found <span style="font-weight: bold;">131 exhibitions</span> on the Willem de Kooning Foundation's website, only <span style="font-weight: bold;">81 had catalogues</span>. From <span style="font-weight: bold;">BnF</span> and <span style="font-weight: bold;">Google Books API</span>, we extracted <span style="font-weight: bold;">31 exhibition records</span>. This suggests that only <span style="font-weight: bold;">39%</span> of catalogued exhibitions and <span style="font-weight: bold;">23%</span> of total exhibitions were covered in our dataset. It's worth noting that the extracted records include exhibitions beyond one-man shows.
             </p>
+
+            <div class="row">
+              <div class="col-md-6">
+                <canvas id="vennDiagram" width="400" height="400"></canvas>
+
+                <script>
+                    window.onload = function() {
+                        var canvas = document.getElementById("vennDiagram");
+                        var ctx = canvas.getContext("2d");
+        
+                        // Draw large circle
+                        ctx.beginPath();
+                        ctx.arc(200, 200, 150, 0, 2 * Math.PI);
+                        ctx.fillStyle = "#87CEEB"; // Light sky blue
+                        ctx.fill();
+                        ctx.closePath();
+        
+                        // Draw small circle
+                        ctx.beginPath();
+                        ctx.arc(180, 250, 80, 0, 2 * Math.PI);
+                        ctx.fillStyle = "#4682B4"; // Dark slate blue
+                        ctx.fill();
+                        ctx.closePath();
+        
+                        // Write text
+                        ctx.fillStyle = "black";
+                        ctx.font = "14px Arial";
+                        ctx.fillText("131 exhibitions", 220, 150);
+                        ctx.fillText("81 catalogues", 115, 280);
+                    };
+                </script>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
           <br>
           <br>
           <h2 class="h2_body">HOW MANY DE KOONING EXHIBITIONS <br>ARE COVERED IN THE BIBLIOGRAPHY?</h2>
@@ -373,93 +417,101 @@
           <p class="p_body"> Our analyses focus on the relationship between the number of works sold, price trends, and their averages over the years 2000-2010.</p>
         </div>
         
-
-        <h2 class="h2_body" style="margin-top: 2rem;">How many sales of works per year for the two artists?</h2>
-        <p class="p_body">In the common span time (2008-2014) Klimt has seen a diminishing amount of sellings while the inverse can be considered for De Kooning, even though in the last year considered (2014) De Kooning’s sellings were half of those performed in the previous year.</p>
-        <div class="plot" id="div_myChart3">
-          <canvas id="myChart3" width="700" height="350"></canvas>
-          <p id="chartCaption" >
-            Questa è una caption descrittiva per il grafico
-          </p>
-      
-          
-
-          <script>
-            // Load the CSV data
-            fetch('data/selling_per_year.csv')
-                .then(response => response.text())
-                .then(csvData => {
-                    const labels = [];
-                    const deKooningCount = [];
-                    const klimtCount = [];
-                    const rows = csvData.trim().split('\n').slice(1); // Skip the header
-    
-                    rows.forEach(row => {
-                        const [soldTime, deKooning, klimt] = row.split(',');
-                        labels.push(soldTime);
-                        deKooningCount.push(parseInt(deKooning));
-                        klimtCount.push(parseInt(klimt));
-                    });
-    
-                    // Create the chart
-                    const ctx = document.getElementById('myChart3').getContext('2d');
-                    const myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [
-                                {
-                                    label: 'De Kooning Count',
-                                    data: deKooningCount,
-                                    borderColor: '#E97D01',
-                                    backgroundColor: 'rgba(0, 0, 0, 0)'
-                                },
-                                {
-                                    label: 'Klimt Count',
-                                    data: klimtCount,
-                                    borderColor: '#26408B',
-                                    backgroundColor: 'rgba(0, 0, 0, 0)'
-                                }
-                            ]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'Counts Over Time',
-                                fontColor: '#352f36'
-                            },
-                            legend: {
-                                labels: {
-                                    fontColor: '#352f36'
-                                }
-                            },
-                            scales: {
-                                xAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Sold Time',
-                                        fontColor: '#352f36'
-                                    },
-                                    ticks: {
-                                        fontColor: '#352f36'
-                                    }
-                                }],
-                                yAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Count',
-                                        fontColor: '#352f36'
-                                    },
-                                    ticks: {
-                                        fontColor: '#352f36'
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                });
-          </script>
+        <div class="row flex">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+            <h2 class="h2_body" style="margin-top: 1rem;">SALES PER YEAR</h2>
+            <h2 class="h2_body">How many sales of works per year for the two artists?</h2>
+            <p>In the common span time (2008-2014) Klimt has seen a diminishing amount of sellings while the inverse can be considered for De Kooning, even though in the last year considered (2014) De Kooning’s sellings were half of those performed in the previous year.</p>
+            </div>
+            <div class="col-md-5">
+            <div class="plot" id="div_myChart3">
+              <canvas id="myChart3" width="280" height="150"></canvas>
+              <p id="chartCaption" >
+                Questa è una caption descrittiva per il grafico
+              </p>
+            </div>
+            <div class="col-md-1"></div>
         
+            
+
+            <script>
+              // Load the CSV data
+              fetch('data/selling_per_year.csv')
+                  .then(response => response.text())
+                  .then(csvData => {
+                      const labels = [];
+                      const deKooningCount = [];
+                      const klimtCount = [];
+                      const rows = csvData.trim().split('\n').slice(1); // Skip the header
+      
+                      rows.forEach(row => {
+                          const [soldTime, deKooning, klimt] = row.split(',');
+                          labels.push(soldTime);
+                          deKooningCount.push(parseInt(deKooning));
+                          klimtCount.push(parseInt(klimt));
+                      });
+      
+                      // Create the chart
+                      const ctx = document.getElementById('myChart3').getContext('2d');
+                      const myChart = new Chart(ctx, {
+                          type: 'line',
+                          data: {
+                              labels: labels,
+                              datasets: [
+                                  {
+                                      label: 'De Kooning Count',
+                                      data: deKooningCount,
+                                      borderColor: '#E97D01',
+                                      backgroundColor: 'rgba(0, 0, 0, 0)'
+                                  },
+                                  {
+                                      label: 'Klimt Count',
+                                      data: klimtCount,
+                                      borderColor: '#26408B',
+                                      backgroundColor: 'rgba(0, 0, 0, 0)'
+                                  }
+                              ]
+                          },
+                          options: {
+                              title: {
+                                  display: true,
+                                  text: 'Counts Over Time',
+                                  fontColor: '#352f36'
+                              },
+                              legend: {
+                                  labels: {
+                                      fontColor: '#352f36'
+                                  }
+                              },
+                              scales: {
+                                  xAxes: [{
+                                      scaleLabel: {
+                                          display: true,
+                                          labelString: 'Sold Time',
+                                          fontColor: '#352f36'
+                                      },
+                                      ticks: {
+                                          fontColor: '#352f36'
+                                      }
+                                  }],
+                                  yAxes: [{
+                                      scaleLabel: {
+                                          display: true,
+                                          labelString: 'Count',
+                                          fontColor: '#352f36'
+                                      },
+                                      ticks: {
+                                          fontColor: '#352f36'
+                                      }
+                                  }]
+                              }
+                          }
+                      });
+                  });
+            </script>
+          
+          </div>
         </div>
 
         <h2 class="h2_body" style="margin-top: 2rem;">Comparison between the average prices of the two artists</h2>
