@@ -298,9 +298,7 @@
             </div>
           </div>
       
-            
-          
-          
+
             <script>
               // Data for De Kooning online
               var sizes_dk_online = [30, 145];
@@ -350,89 +348,32 @@
 
           </script>
 
+ 
+        </div>
 
-
-          
-          <br>
-
-          <h2 class="h2_body">EXHIBITIONS DATA</h2>
-          <p class="p_body">We can see here how the <span class="bold">number of auctions of our two reference artists</span> are similar. We therefore have the possibility of making a balanced comparison on this aspect.</p>
+        <div class="panel" data-color="violet">
+          <h2 class="h2_body">What is the percentage of completeness?</h2>
+          <div class="counter p_body" data-count="35">0</div>
+        </div>
 
              
-          
-
-          <div class="plot" id="div_myChart2">
-            <canvas id="myChart2" width="700" height="350"></canvas>
-            <p id="chartCaption" >
-              Questa è una caption descrittiva per il grafico
-            </p>
-          
-            <script>
-              // Load the CSV data
-              fetch('data/soldtime_merge_df.csv')
-                  .then(response => response.text())
-                  .then(csvData => {
-                      const labels = [];
-                      const deKooningData = [];
-                      const klimtData = [];
-                      const rows = csvData.trim().split('\n').slice(1); // Skip the header
-      
-                      rows.forEach(row => {
-                          const [timesSold, deKooningCount, klimtCount] = row.split(',');
-                          labels.push(timesSold);
-                          deKooningData.push(parseInt(deKooningCount));
-                          klimtData.push(parseInt(klimtCount));
-                      });
-      
-                      // Create the chart
-                      const ctx = document.getElementById('myChart2').getContext('2d');
-                      const myChart = new Chart(ctx, {
-                          type: 'bar',
-                          data: {
-                              labels: labels,
-                              datasets: [
-                                  {
-                                      label: 'De Kooning',
-                                      backgroundColor: '#E97D01',
-                                      data: deKooningData
-                                  },
-                                  {
-                                      label: 'Klimt',
-                                      backgroundColor: '#26408B',
-                                      data: klimtData
-                                  }
-                              ]
-                          },
-                          options: {
-                              title: {
-                                  display: true,
-                                  text: 'Frequency of Count Values',
-                                  fontColor: '#352f36'
-                              },
-                              legend: {
-                                  labels: {
-                                      fontColor: '#352f36'
-                                  }
-                              },
-                              scales: {
-                                  xAxes: [{
-                                      ticks: {
-                                          fontColor: '#352f36'
-                                      }
-                                  }],
-                                  yAxes: [{
-                                      ticks: {
-                                          fontColor: '#352f36'
-                                      }
-                                  }]
-                              }
-                          }
-                      });
-                  });
-            </script>
-          </div>
+      </div>
+      <div class="panel" data-color="indigo">
+        <div class="space">
+          <h1 class="h1_body">Klimt vs De Kooning</h1>
+          <br>
+          <h2 class="h2_body">A case study comparison</h2>
+          <br>
+          <h2 class="h2_body">Is there a correlation?</h2>
+          <p class="p_body">Now that we know the accuracy and completeness percentage of the open data we have, we can move on to a phase of comparing the research results between Willem De Kooning and Gustav Klimt.</p>
+          <br>
+          <br>
+          <h2 class="h2_body">AUCTIONS DATA</h2>
+          <p class="p_body"> Our analyses focus on the relationship between the number of works sold, price trends, and their averages over the years 2000-2010.</p>
+        </div>
         
 
+        <h2 class="h2_body" style="margin-top: 2rem;">How many sales of works per year for the two artists?</h2>
         <div class="plot" id="div_myChart3">
           <canvas id="myChart3" width="700" height="350"></canvas>
           <p id="chartCaption" >
@@ -631,7 +572,7 @@
       </div>
 
         
-
+      <h2 class="h2_body" style="margin-top: 2rem;">How many bibliographic publications per year for the two artists?</h2>
       <div class="plot" id="div_myChart5">
         <canvas id="myChart5" width="700" height="350"></canvas>
           <p id="chartCaption">
@@ -728,7 +669,7 @@
       </div>
 
         
-        
+      <h2 class="h2_body" style="margin-top: 2rem;">How many exhibitions per year for the two artists?</h2> 
       <div class="plot" id="div_myChart6">
         <canvas id="myChart6" width="700" height="350"></canvas>
         <p id="chartCaption">
@@ -821,66 +762,13 @@
               .catch(error => {
                   console.error('Error loading data:', error);
               });
-      </script>
-    </div>
-    
-        
-        
-        </div>
-        
-        
-        
-        
-        
-        
-
-
-  
-
-
-
-
-
-
-             
-        <p class="p_body">In our research we considered also the number of exibitions and the venue of the exibitions as parameters in order to check whether the reputation of the artist has changed over the years. However, no complete dataset on artists' exhibitions was found. In order to get an idea on how many exibitions have been covered on catalogues, and, in particular, how many exhibitions are traced by bibliographic records on BnF and Gallica, we needed a "ground truth" to state if those sources of information could be somehow comprehensive. 
-
-          The case study is Willem de Kooning, since all data about exibitions are uploaded on the website of the Willem de Kooning Foundation. 
-          The result of the webscraping are shown here, with a total of 131 exhibitions, 81 possess a catalogue. 
-          
-        </p>
-        <br>
-        <h2 class="h2_body">What is the percentage of completeness?</h2>
-        <div class="counter" data-count="35">0</div>
-
-             
+        </script>
       </div>
-      <div class="panel" data-color="indigo">
-        <div class="space">
-          <h1 class="h1_body">Klimt vs De Kooning</h1>
-          <br>
-          <h2 class="h2_body">A case study comparison</h2>
-          <br>
-          <h2 class="h2_body">Is there a correlation?</h2>
-          <p class="p_body">As we have seen, the two artists exhibit similar data in terms of sales (both in terms of the number of works sold and the price range and temporal availability of the data). Now that we know the accuracy and completeness percentage of the open data we have, we can move on to a phase of comparing the research results between Willem De Kooning and Gustav Klimt.</p>
-          <br>
-          <br>
-          <h2 class="h2_body">AUCTIONS DATA</h2>
-          <p class="p_body">The analysis begins with the observation of the auction house dataset, where we understand how the quotes of the two artists change and evolve over time. Our analyses focus on the relationship between the number of works sold, price trends, and their averages over the years 2000-2010.</p>
-        </div>
+
       </div>
         
 
-        
-        
-      <div class="panel" data-color="blue"></div>   
-          <h2 class="h2_body">EXHIBITIONS DATA</h2>
-          <p class="p_body">As we said before, we tried to understand how many exhibitions of our artists are traced by bibliographic records on BnF, Gallica and Google Books API.</p>
-      </div>
-      <div class="panel" data-color="orange">
-        <h2 class="h2_body">BIBLIOGRAPHIC DATA</h2>
-          <p class="p_body">We have also observed whether there were interesting data within the bibliographic datasets in terms of comparing the number of publications per year.</p>
-      </div>
+   
       <div class="panel" data-color="red">
         <h2>Red panel</h2>
       </div>
@@ -890,20 +778,20 @@
       <div class="container-fluid">
           <div class="row">
             <div class="col-md-5">
-              <p class="p_body">ReputationEra is an academic project for the exam of Information Visualization 2023/2024 held by Professor Marilena Daquino. </p>
+              <p>ReputationEra is an academic project for the exam of Information Visualization 2023/2024 held by Professor Marilena Daquino. </p>
               
-              <p class="p_body">This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
+              <p>This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
               <br>
-              <a class="p_body" rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
+              <a rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
             </div>
             <div class="col-md-3">
               <h6 style="font-family: paint4;">Contacts</h6>
               <br>
-              <p class="p_body"><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
+              <p><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
               <br>
-              <p class="p_body"><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
+              <p><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
               <br>
-              <p class="p_body"><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
+              <p><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
               <br>
               <a href="#top"><button type="button" class="btn btn-outline-light">Back to the top</button></a>
             </div>
