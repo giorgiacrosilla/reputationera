@@ -142,10 +142,10 @@ body {
 }
 
 .p_body {
-  font-family: Roboto;
+  font-family: Roboto !important;
   font-size: 1em;
-  margin-left: 12vw;
-  margin-right: 12vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
   color: rgb(31, 29, 29);
   margin-top: 2%;
   margin-bottom: -2%;
@@ -387,24 +387,24 @@ a {
 
 #div_myChart0 {
   display: inline-block;
-  margin-top: -36%;
+
   background-color: aliceblue;
   border-radius: 15px;
   width: 30%;
-  margin-left: -51%;
-  
+
   padding: 2%;
 }
 
 #div_myChart9 {
   display: inline-block;
-
+  height: 35vw;
   background-color: aliceblue;
   border-radius: 15px;
-  width: 32%;
+  width: 30%;
   margin-top: 2%;
-  margin-right: -49%;
+  margin-right: 9rem;
   padding: 2%;
+  
 }
 
 #chartCaption {

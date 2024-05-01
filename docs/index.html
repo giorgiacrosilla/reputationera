@@ -266,32 +266,36 @@
         
           <h2 class="h2_body" style="margin-top: 6%;">REPRESENTATIVENESS OF DATA</h2>
           <h2 class="h2_body">Exhibitions data</h2>
-          <p class="p_body">We found <span style="font-weight: bold;">131 exhibitions</span> on the Willem de Kooning Foundation's website, only <span class="bold">81 had catalogues</span>. From <span class="bold">BnF</span> and <span class="bold">Google Books API</span>, we extracted <span class="bold">31 exhibition records</span>. This suggests that only <span class="bold">39%</span> of catalogued exhibitions and <span class="bold">23%</span> of total exhibitions were covered in our dataset. It's worth noting that the extracted records include exhibitions beyond one-man shows.
+          <p class="p_body">We found <span style="font-weight: bold;">131 exhibitions</span> on the Willem de Kooning Foundation's website, only <span style="font-weight: bold;">81 had catalogues</span>. From <span style="font-weight: bold;">BnF</span> and <span style="font-weight: bold;">Google Books API</span>, we extracted <span style="font-weight: bold;">31 exhibition records</span>. This suggests that only <span style="font-weight: bold;">39%</span> of catalogued exhibitions and <span style="font-weight: bold;">23%</span> of total exhibitions were covered in our dataset. It's worth noting that the extracted records include exhibitions beyond one-man shows.
             </p>
           <br>
           <br>
           <h2 class="h2_body">HOW MANY DE KOONING EXHIBITIONS <br>ARE COVERED IN THE BIBLIOGRAPHY?</h2>
           <br>
          
-          <div class="container" style="display: flex;">
-            <h2 class="h2_body" style="margin-right: 265px; margin-left: 102px;">BnF and Google Books</h2>
+          <div class="container" style="display: flex; justify-content: center; align-items: center; ">
+            <h2 class="h2_body" style="margin-right: 10rem;">BnF and Google Books</h2>
             <h2 class="h2_body">De Kooning Foundation</h2>
           </div>
-          <div class="plot" id="div_myChart9">
 
-            <canvas id="myChart9" width="100" height="50"></canvas>
-            <p id="chartCaption9" style="color: #352f36; font-size: 14px; margin-top: 5px;">
-                Distribution of Exhibition in Foundation data
-            </p>
-          </div>
+          <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <div class="plot" id="div_myChart9">
 
- 
-          <div class="plot" id="div_myChart0">
-            
-            <canvas id="myChart0" width="100" height="50"></canvas>
-            <p id="chartCaption0" style="color: #352f36; font-size: 14px;">
-                Distribution of Exhibition in BnF and Google Books API
-            </p>
+              <canvas id="myChart9" width="100" height="50"></canvas>
+              <p id="chartCaption9" style="color: #352f36; font-size: 14px; margin-top: 5px;">
+                  Distribution of Exhibition in Foundation data
+              </p>
+            </div>
+
+  
+            <div class="plot" id="div_myChart0">
+              
+              <canvas id="myChart0" width="100" height="50"></canvas>
+              <br>
+              <p id="chartCaption0" style="color: #352f36; font-size: 14px; margin-top: 5px;">
+                  Distribution of Exhibition in BnF and Google Books API
+              </p>
+            </div>
           </div>
       
             
@@ -339,35 +343,6 @@
                       }],
                       labels: labels_dk_website
                   },
-                  options: {
-                      legend: {
-                          display: false
-                      },
-                      title: {
-                          display: true,
-                          text: 'Distribution of Exhibition in Foundation data',
-                          fontColor: '#352f36',
-                          fontSize: 16
-                      },
-                      plugins: {
-                          datalabels: {
-                              color: '#fff',
-                              font: {
-                                  size: '14'
-                              },
-                              formatter: function(value, context) {
-                                  return '';
-                              }
-                          }
-                      },
-                      tooltips: {
-                          callbacks: {
-                              label: function(tooltipItem, data) {
-                                  return data.labels[tooltipItem.index] + ': ' + var_k_perc[tooltipItem.index];
-                              }
-                          }
-                      }
-                  }
               });
 
 
@@ -387,7 +362,7 @@
           
 
           <div class="plot" id="div_myChart2">
-            <canvas id="myChart2" width="800" height="400"></canvas>
+            <canvas id="myChart2" width="700" height="350"></canvas>
             <p id="chartCaption" >
               Questa è una caption descrittiva per il grafico
             </p>
@@ -459,7 +434,7 @@
         
 
         <div class="plot" id="div_myChart3">
-          <canvas id="myChart3" width="800" height="400"></canvas>
+          <canvas id="myChart3" width="700" height="350"></canvas>
           <p id="chartCaption" >
             Questa è una caption descrittiva per il grafico
           </p>
@@ -545,7 +520,7 @@
         </div>
 
         <div class="plot" id="div_myChart4">
-          <canvas id="myChart4" width="800" height="400"></canvas>
+          <canvas id="myChart4" width="700" height="350"></canvas>
           <p id="chartCaption" >
             Questa è una caption descrittiva per il grafico
           </p>
@@ -658,7 +633,7 @@
         
 
       <div class="plot" id="div_myChart5">
-        <canvas id="myChart5" width="800" height="400"></canvas>
+        <canvas id="myChart5" width="700" height="350"></canvas>
           <p id="chartCaption">
             Questa è una caption descrittiva per il grafico
           </p>
@@ -755,7 +730,7 @@
         
         
       <div class="plot" id="div_myChart6">
-        <canvas id="myChart6" width="800" height="400"></canvas>
+        <canvas id="myChart6" width="700" height="350"></canvas>
         <p id="chartCaption">
             Questa è una caption descrittiva per il grafico
         </p>
