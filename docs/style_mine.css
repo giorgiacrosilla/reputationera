@@ -131,7 +131,7 @@ body {
   background-color: #F19031;
 }
 .color-red {
-  background-color: #F2293A;
+  background-color: #E9A2FF;
 }
 
 .h1_body {
@@ -411,3 +411,24 @@ a {
   color: #352f36;
 }
 
+#contact-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.person-name {
+  margin-right: auto; /* Pushes the icons to the right */
+}
+
+.icon-link {
+  margin-left: 10px; /* Add space between the name and icons */
+  color: #000103; /* Initial icon color */
+  text-decoration: none;
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.icon-link:hover {
+  color: #ffbe33; /* Change color on hover */
+}
