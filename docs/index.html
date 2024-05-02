@@ -257,18 +257,19 @@
         <div class="panel" data-color="white" id="first">
           <br />
           <br />
-          <h2 class="h2_body" style="color: rgb(26, 24, 24)">
-            Why did we choose those two artists?
-          </h2>
           <div class="row flex">
             <div class="col-md-6">
           <p class="p_body"></p>
+          <h2 class="h2_body" style="color: rgb(26, 24, 24)">
+            Why did we choose those two artists?
+          </h2>
+          <br>
           <ul class="p_body">
-            <li class="p_body">
+            <li class="p_body" style="background-color: #C783DD; border-radius: 5px; ">
               Quantitative similarity in auction data, enabling us to conduct a
               <span style="font-weight: bold">balanced comparison</span>.
             </li>
-            <li class="p_body">
+            <li class="p_body" style="background-color: #C783DD; border-radius: 5px; ">
               Similar <span style="font-weight: bold">time coverage</span> of
               the data period of our datasets.
             </li>
@@ -697,9 +698,10 @@
         </div>
 
         <div class="publications">
-          <h2  class="h2_body" >AVERAGE SALES PRICES</h2>
+          <h2  class="h2_body" ><i class="fa-solid fa-magnifying-glass" style="margin-right: 3%;"></i> AVERAGE SALES PRICES <i class="fa-solid fa-user-secret" style="margin-left: 3%;"></i></h2>
+          <br>
           <h2 class="h2_body" >
-            Comparison between the average prices of the two artists
+            Let's play an investigation game!
           </h2>
           <p class="p_body">This may seem like a very complicated graph... let's try to do a treasure hunt to get to know it a little.</p>
           <p class="p_body">Try to find these elements using your detective magnifying glass: </p>
@@ -719,88 +721,86 @@
               src="output.png"
               style="width: 69vw;  border-radius: 15px" class="magnifiedImg"
             />
-           <script>
-              /*Size is  set in pixels... supports being written as: '250px' */
-              var magnifierSize = 150;
-
-              /*How many times magnification of image on page.*/
-              var magnification = 2;
-
+            <p id="chartCaption">
+              Chart 4: Comparison of the two artist average sales prices per year. 
+            </p>
+            <script>
+            $(document).ready(function() {
               function magnifier() {
-
-                this.magnifyImg = function(ptr, magnification, magnifierSize) {
-                  var $pointer;
-                  if (typeof ptr == "string") {
-                    $pointer = $(ptr);
-                  } else if (typeof ptr == "object") {
-                    $pointer = ptr;
-                  }
-                  
-                  if(!($pointer.is('img'))){
-                    alert('Object must be image.');
-                    return false;
-                  }
-
-                  magnification = +(magnification);
-
-                  $pointer.hover(function() {
-                    $(this).css('cursor', 'none');
-                    $('.magnify').show();
-                    //Setting some variables for later use
-                    var width = $(this).width();
-                    var height = $(this).height();
-                    var src = $(this).attr('src');
-                    var imagePos = $(this).offset();
-                    var image = $(this);
-
-                    if (magnifierSize == undefined) {
-                      magnifierSize = '150px';
-                    }
-
-                    $('.magnify').css({
-                      'background-size': width * magnification + 'px ' + height * magnification + "px",
-                      'background-image': 'url("' + src + '")',
-                      'width': magnifierSize,
-                      'height': magnifierSize
-                    });
-
-                    //Setting a few more...
-                    var magnifyOffset = +($('.magnify').width() / 2);
-                    var rightSide = +(imagePos.left + $(this).width());
-                    var bottomSide = +(imagePos.top + $(this).height());
-
-                    $(document).mousemove(function(e) {
-                      if (e.pageX < +(imagePos.left - magnifyOffset / 6) || e.pageX > +(rightSide + magnifyOffset / 6) || e.pageY < +(imagePos.top - magnifyOffset / 6) || e.pageY > +(bottomSide + magnifyOffset / 6)) {
-                        $('.magnify').hide();
-                        $(document).unbind('mousemove');
+                  this.magnifyImg = function(ptr, magnification, magnifierSize) {
+                      var $pointer;
+                      if (typeof ptr == "string") {
+                          $pointer = $(ptr);
+                      } else if (typeof ptr == "object") {
+                          $pointer = ptr;
                       }
-                      var backgroundPos = "" - ((e.pageX - imagePos.left) * magnification - magnifyOffset) + "px " + -((e.pageY - imagePos.top) * magnification - magnifyOffset) + "px";
-                      $('.magnify').css({
-                        'left': e.pageX - magnifyOffset,
-                        'top': e.pageY - magnifyOffset,
-                        'background-position': backgroundPos
+      
+                      if (!($pointer.is('img'))) {
+                          alert('Object must be an image.');
+                          return false;
+                      }
+      
+                      magnification = +(magnification);
+      
+                      $pointer.hover(function() {
+                          $(this).css('cursor', 'none');
+                          $('.magnify').show();
+      
+                          //Setting some variables for later use
+                          var width = $(this).width();
+                          var height = $(this).height();
+                          var src = $(this).attr('src');
+                          var imagePos = $(this).offset();
+                          var image = $(this);
+      
+                          if (magnifierSize == undefined) {
+                              magnifierSize = '150px';
+                          }
+      
+                          $('.magnify').css({
+                              'background-size': width * magnification + 'px ' + height * magnification + "px",
+                              'background-image': 'url("' + src + '")',
+                              'width': magnifierSize,
+                              'height': magnifierSize
+                          });
+      
+                          //Setting a few more...
+                          var magnifyOffset = +($('.magnify').width() / 2);
+                          var rightSide = +(imagePos.left + $(this).width());
+                          var bottomSide = +(imagePos.top + $(this).height());
+      
+                          $(document).mousemove(function(e) {
+                              if (e.pageX < +(imagePos.left - magnifyOffset / 6) || e.pageX > +(rightSide + magnifyOffset / 6) || e.pageY < +(imagePos.top - magnifyOffset / 6) || e.pageY > +(bottomSide + magnifyOffset / 6)) {
+                                  $('.magnify').hide();
+                                  $(document).unbind('mousemove');
+                              }
+                              var backgroundPos = "" - ((e.pageX - imagePos.left) * magnification - magnifyOffset) + "px " + -((e.pageY - imagePos.top) * magnification - magnifyOffset) + "px";
+                              $('.magnify').css({
+                                  'left': e.pageX - magnifyOffset,
+                                  'top': e.pageY - magnifyOffset,
+                                  'background-position': backgroundPos
+                              });
+                          });
+                      }, function() {
+      
                       });
-                    });
-                  }, function() {
-
-                  });
-                };
-
-                this.init = function() {
-                  $('body').prepend('<div class="magnify"></div>');
-                }
-
-                return this.init();
+                  };
+      
+                  this.init = function() {
+                      $('body').prepend('<div class="magnify"></div>');
+                  }
+      
+                  return this.init();
               }
-
+      
               var magnify = new magnifier();
-              magnify.magnifyImg('img', magnification, magnifierSize);
-
-           </script>
+              magnify.magnifyImg('img.magnifiedImg', 2, 150); // Associa la funzione solo alle immagini con la classe magnifiedImg
+          });
+      </script>
           </div>
         </div>
 <div class="publications">
-        <h2 class="h2_body" style="margin-top: 2rem">PUBLICATIONS DATA</h2>
+        <h2 class="h2_body" >PUBLICATIONS DATA</h2>
         <p class="p_body">The purpose of bibliographic analysis is to consider the trend of publications over time, distinguishing between exhibition catalogs and others.</p>
         <div class="decoright"></div>
 </div>
@@ -809,7 +809,7 @@
         <div class="plot" id="div_myChart5">
           <canvas id="myChart5" width="700" height="350"></canvas>
           <p id="chartCaption">
-            Questa è una caption descrittiva per il grafico
+            Chart 5: Numbers of publications per year for the two artists.
           </p>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -909,9 +909,13 @@
         </div>
         </div>
         <div class="col-md-6">
-          <h2 class="h2_body" style="margin-top: 2rem">
-            How many bibliographic publications per year for the two artists?
+          <h2 class="h2_body" style="margin-top: 1rem">
+            PUBLICATIONS PER YEAR
           </h2>
+          <h2 class="h2_body">
+            How many publications per year for the two artists?
+          </h2>
+          <p class="p_body">We can see how Klimt has a good growth that starts from the end of the 90s until 2018. De Kooning is more distant and with smaller peaks, although he also shows growth from the 2000s onwards.</p>
           </div>
           <div class="exhibitions">
             <div class="decoleft"></div>
@@ -926,15 +930,19 @@
         <br />
         <div class="row flex">
         <div class="col-md-6">
-        <h2 class="h2_body" style="margin-top: 2rem">
+          <h2 class="h2_body" style="margin-top: 1rem">
+            EXHIBITIONS PER YEAR
+          </h2>
+        <h2 class="h2_body">
           How many exhibitions per year for the two artists?
         </h2>
+        <p class="p_body">Certainly 2005 was a good year for Klimt exhibitions! <br>While de Kooning seems to achieve excellent results only 5 years later, in 2011.</p>
         </div>
         <div class="col-md-6">
         <div class="plot" id="div_myChart6">
           <canvas id="myChart6" width="500" height="250"></canvas>
           <p id="chartCaption">
-            Questa è una caption descrittiva per il grafico
+            Chart 6: Number of exhibitions per year for the two artists.
           </p>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
