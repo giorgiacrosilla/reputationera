@@ -624,6 +624,7 @@ li.p_body {
   width: 400px;
   padding: 15px;
   background: #e5f45b;
+  border-radius: 12px;
 }
 
 .timeline ul li div::before {
