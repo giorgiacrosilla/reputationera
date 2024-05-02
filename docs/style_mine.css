@@ -304,12 +304,14 @@ a {
 
 /* macchia colore kooning 2 */
 #part1 {
-  position: absolute;
-  width: 20%; /* Imposta la larghezza dell'immagine */
-  z-index: -1; /* Assicura che l'immagine sia posizionata sopra il resto del contenuto */
-  transition: transform 0.3s; /* Aggiungi una transizione per rendere più fluida la rotazione */
-  margin-top: -80%;
-  margin-left: -71%;
+  position: relative;
+  width: 100px;
+  /* height: 100px; */
+  z-index: -1;
+  transition: transform 0.3s;
+  margin-left: 5%;
+  float: left;
+  margin-right: -20%;
 }
 
 .scroll-rotate {
@@ -551,11 +553,11 @@ li.p_body {
 }
 
 .decoright {
-    float: right;
-    margin-right: -170%;
-    background-image: url('partDK1.png');
-    position: relative;
-    margin-top: -30%;
+  float: right;
+  margin-right: -15%;
+  background-image: url(partDK1.png);
+  position: relative;
+  margin-top: -10%;
 }
 
 .row {
