@@ -23,12 +23,13 @@
 
 body {
     margin: 0;
-    padding: 1%;
-    font-family: Roboto;
+    font-family: Roboto !important;
     overflow-x: hidden;
     transition: background-color 1s ease;
 }
-
+#treemap svg {
+  background-color: transparent !important;
+}
 .h1_title {
   font-family: "paint";
   font-size: 4vw;
@@ -52,7 +53,8 @@ body {
 }
 
 #title_a {
-  margin-top: -5vw;
+  height: auto;
+  min-height: unset !important;
 }
 
 .parallax {
@@ -144,8 +146,7 @@ body {
 .p_body {
   font-family: Roboto !important;
   font-size: 1em;
-  margin-left: 15vw;
-  margin-right: 15vw;
+
   color: rgb(31, 29, 29);
   margin-top: 2%;
   margin-bottom: -2%;
@@ -165,7 +166,6 @@ body {
 
 .image-container {
   position: relative;
-  width: 90%;
   margin-top: 4%;
 }
 
@@ -267,8 +267,40 @@ a {
 
 .panel {
   position: relative;
+  
 }
 
+.sectioncontainer {
+  display: flex;
+  height: 60vh;
+}
+
+.sectioncontainer2, .sectioncontainer3 {
+  width: 50%;
+  height: inherit;
+  
+}
+
+.sectioncontainer1 {
+  width:50%;
+  height: inherit;
+  clip-path: polygon(0 0, 100% 0, 61% 100%, 0% 100%);
+  background-image: url('deko.jpg'); /* Specify your image URL here */
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+  background-repeat: no-repeat;
+  }
+
+  .sectioncontainer4 {
+    width:50%;
+    height: inherit;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 28% 100%);
+    background-image: url('Gkport.png'); /* Specify your image URL here */
+    background-size: cover; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+    background-repeat: no-repeat;
+    }
+  
 
 /* macchia colore kooning 2 */
 #part1 {
@@ -285,8 +317,11 @@ a {
 }
 
 .space {
-  margin-top: 5%;
   margin-bottom: 5%;
+}
+
+.counter.p_body {
+  font-size: 5rem;
 }
 
 /* macchia colore kooning 2 */
@@ -431,4 +466,76 @@ a {
 
 .icon-link:hover {
   color: #ffbe33; /* Change color on hover */
+}
+
+ footer .row {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.elementfooter1 {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 0 15% 2%;
+ gap:6%;
+}
+
+.row.flex {
+  margin: 2% 0%;
+  padding: 0%;
+  --bs-gutter-x: 1em;
+}
+
+.totalcontainer {
+  padding: 0 5%;
+}
+
+section:not(:first-child), .auctions, .publications, .exhibitions {
+  margin-top: 5%;
+}
+
+.h3_body {
+  font-family: 'paint';
+  font-size: 0.95em;
+  margin-top: -2%;
+text-align: center;
+}
+
+ul.p_body {
+  margin-top: 10vh;
+}
+
+li.p_body {
+  margin-bottom:15vh;
+}
+
+.decoleft, .decoright {
+  height:150px;
+  width:150px;
+  background-color: transparent;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.decoleft {
+  float: left;
+  margin-left:-15%;
+  background-image: url('partDK2.png');
+}
+
+.decoright {
+    float: right;
+    margin-right: -170%;
+    background-image: url('partDK1.png');
+    position: relative;
+    margin-top: -30%;
+}
+
+.row {
+  margin-top: 4%;
+  margin-bottom: 4%;
 }

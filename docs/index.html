@@ -1,782 +1,1073 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReputationEra</title>
     <link rel="stylesheet" href="style_mine.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
-<body>
+  <body>
     <div class="parallax" id="parallax">
-        <div class="overlay"></div>
-        <div class="parallax-text">
-            <h1 class="h1_title" contenteditable="true">ReputationEra</h1>
-            <h2 class="h2_title">An estimation journey between De Kooning and Klimt</h2>
-        </div>
-        <div class="zoom-frame" id="zoomFrame">
-            <!-- Put your content for the zooming frame here -->
-            <img src="Klimt2.png" alt="Frame" class="frame-image">
-        </div>
+      <div style="position:fixed"><a href="" download>DOCS</a></div>
+      <div class="overlay"></div>
+      <div class="parallax-text">
+        <h1 class="h1_title" contenteditable="true">ReputationEra</h1>
+        <h2 class="h2_title">
+          An estimation journey between De Kooning and Klimt
+        </h2>
+      </div>
+      <div class="zoom-frame" id="zoomFrame">
+        <!-- Put your content for the zooming frame here -->
+        <img src="Klimt2.png" alt="Frame" class="frame-image" />
+      </div>
     </div>
-
-    <div>
-      <div class="panel" data-color="white">
+    <div class="totalcontainer">
+      <section>
+        <div class="panel" data-color="white">
           <div>
             <h1 class="h1_body">Explore artists' reputation</h1>
-
-            <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-5">
-                <br>
-                <h2 style="color: #352f36; font-family: Roboto; text-align: center;"> Reputation is not popularity</h2>
-                <p style=" font-family: Roboto;"> By reputation we mean the economic and cultural value of the artist's figure, which is defined through his positioning in the art market, the number of studies and publications about him and the number of exhibitions.</p>
-                <br>
-                <br>
-              </div>
-              <br>
-              <div class="col-md-5">
-                <br>
-                <h2 style="color: #352f36; font-family: Roboto; text-align: center;">What are we looking for?</h2>
-                <p style=" font-family: Roboto;">We want to check the relationship between the estimation of an artist in the <span style="font-weight: bold;">economic dimension</span> of the art market and in the <span style="font-weight: bold;">cultural dimension</span> of the general public.</p>
-                <br>
-                <br>
-              </div>
-              <div class="col-md-1"></div>
-            </div>
-
-            <h2 class="h2_body" style="color: #352f36;">What data do we need to observe?</h2>
-            <br>
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6"> <!-- Utilizza col-md-6 per far sì che ciascuna card occupi metà della larghezza su dispositivi di dimensioni medie e superiori -->
-          <div class="panel" >
-            
-
-            <div class="image-container">
-              <img src="blue.png" style="width: 38vw;   margin-left: 6vw;" class="image-front" id="try">
-              <div class="image-front-text" id="front1">Economic data</div>
-              <div class="image-back" id="back1"><p>Sales of the most important</p><p> auction houses</p></div>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="col-md-6"> <!-- Utilizza col-md-6 per far sì che ciascuna card occupi metà della larghezza su dispositivi di dimensioni medie e superiori -->
-          <div class="panel">
-           
-
-            <div class="image-container">
-              <img src="pink.png" style="width: 38vw; margin-right: 5vw;" class="image-front" id="try">
-              <div class="image-front-text" id="front2">Cultural data</div>
-              <div class="image-back" id="back2"><p>Exhibition records</p>
-                <p>Editorial publications</p></div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="panel" data-color="white" id="first">   
-          <br>
-          <br>
-          <h2 class="h2_body" style="color: #352f36;">The sources of our data:</h2>
-          
-
-          <div class="row" style="padding: 3%;">
-
-            <div class="col-md-3 d-flex align-items-stretch">
-              <div class="card border-primary mb-3" style="max-width: 18rem;">
-               <a href="https://www.dekooning.org/" target="_blank" style="color: transparent;">
-                <div class="card-body text-primary">
-                  <h5 class="card-title">De Kooning Foundation</h5>
-                  <p class="card-text">A complete digital resource with everything about Willem De Kooning.</p>
-                </div>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-stretch">
-              <div class="card border-success mb-3" style="max-width: 18rem;">
-                <a href="https://github.com/jasonshi10/art_auction_valuation" target="_blank" style="color: transparent;">
-                <div class="card-body text-success">
-                  <h5 class="card-title">Blouin Art Sales Index</h5>
-                  <p class="card-text">Exaustive database with art auction records (since 1922) from over 350 auction houses.</p>
-                </div>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-stretch">
-              <div class="card border-warning mb-3" style="max-width: 18rem;">
-                <a href="https://catalogue.bnf.fr/index.do" target="_blank" style="color: transparent;">
-                <div class="card-body text-warning">
-                  <h5 class="card-title">BnF</h5>
-                  <p class="card-text">A vast digital library preserving international cultural heritage through extensive collections and archives.</p>
-                </div>
-                </a>
-              </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-stretch">
-              <div class="card border-danger mb-3" style="max-width: 18rem;">
-                <a href="https://developers.google.com/books?hl=en" target="_blank" style="color: transparent;">
-                <div class="card-body text-danger">
-                  <h5 class="card-title">Google Books API</h5>
-                  <p class="card-text">Interface granting access to Google Books' vast collection, enabling search, retrieval, and integration.</p>
-                </div>
-                </a>
-              </div>
-            </div>
- 
-
-          </div>
-        </div>
-
-      </div>
-
-        <div class="panel" data-color="white" id="title_a">   
-          <h2 class="h2_body" style="color: #352f36;">We will consider two case studies:</h2>
-          <p class="p_body"><a style="color: #352f36;" href="https://en.wikipedia.org/wiki/Willem_de_Kooning" target="none">Willem De Kooning</a> and <a style="color: #352f36;" href="https://en.wikipedia.org/wiki/Gustav_Klimt" target="none">Gustav Klimt</a>.</p>
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="panel">
-              <img src="DKport.png" style="width: 50%; margin-left: 12vw;">
-              <img src="kooning_frima.png" style="width: 60%;  margin-left: 12vw;">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="panel">
-              <img src="Gkport.png" style="width: 37%;  margin-right: 12vw;">
-              <img src="klimt_firma.png" style="width: 50%; margin-right: 12vw;">
-            </div>
-          </div>
-        </div>
-
-        <br>
-        
-        <div class="panel" data-color="white" id="first">   
-          <br>
-          <br>
-          <h2 class="h2_body" style="color: rgb(26, 24, 24);">The reason of this choice:</h2>
-          <p class="p_body">
-            <ul class="p_body">
-              <li class="p_body">Quantitative similarity in auction data, enabling us to conduct a <span style="font-weight: bold;">balanced comparison</span>.</li>
-              <li class="p_body">Similar <span style="font-weight: bold;">time coverage</span> of the data period of our datasets.</li>
-            </ul>
-          </p>
-          <br>
-          <h2 class="h2_body" style="color: #352f36; margin-top: 2em;">Top 10 artists number of auctions in our dataset</h2>
-          
-          <div class="plot" id="div_myChart1">
-            <canvas id="myChart1" width="700" height="350"></canvas>
-            <p id="chartCaption" style="color: #352f36; font-size: 14px;">
-              Chart 1: Number of auctions for every artist on the dataset.
-            </p>
-
-          
-            <script>
-              // Load the CSV data
-              fetch('data/greater_10_filtered.csv')
-                  .then(response => response.text())
-                  .then(csvData => {
-                      const data = [];
-                      const labels = [];
-                      const colors = []; // Aggiungi un array per memorizzare i colori delle barre
-                      
-                      const rows = csvData.trim().split('\n').slice(1); // Skip the header
-          
-                      rows.forEach(row => {
-                          const [artist, numAuctions] = row.split(',');
-                          labels.push(artist);
-                          data.push(parseInt(numAuctions));
-                          
-                          // Imposta il colore delle barre in base all'artista
-                          if (artist === 'Gustav Klimt' || artist === 'Willem de Kooning') {
-                              colors.push('#86469C'); // Viola scuro
-                          } else {
-                              colors.push('#C783DD'); // Viola chiaro sbiadito
-                          }
-                      });
-          
-                      // Create the chart
-                      const ctx = document.getElementById('myChart1').getContext('2d');
-                      const myChart = new Chart(ctx, {
-                          type: 'bar',
-                          data: {
-                              labels: labels,
-                              datasets: [{
-                                  label: 'Number of Auctions',
-                                  data: data,
-                                  backgroundColor: colors // Usa i colori calcolati per le barre
-                              }]
-                          },
-                          options: {
-                              scales: {
-                                  xAxes: [{
-                                      ticks: {
-                                          autoSkip: false,
-                                          maxRotation: 45,
-                                          minRotation: 45,
-                                          fontColor: '#352f36'
-                                      },
-                                      gridLines: {
-                                          color: 'gray'
-                                      }
-                                  }],
-                                  yAxes: [{
-                                      ticks: {
-                                          fontColor: '#352f36'
-                                      },
-                                      gridLines: {
-                                          color: 'gray'
-                                      }
-                                  }]
-                              },
-                              title: {
-                                  display: true,
-                                  text: 'Auctions performed by artist',
-                                  fontColor: '#352f36'
-                              },
-                              legend: {
-                                  labels: {
-                                      fontColor: '#352f36'
-                                  }
-                              }
-                          }
-                      });
-                  });
-          </script>
-          
-          </div>
-
-        </div>
-
-        
-
-    <!-- De Kooning section -->
-
-      <div class="panel" data-color="violet">
-        <img src="partDK1.png" id="part1">
-        <img src="partDK2.png" id="part2">
-        <div class="space">
-          <h1 class="h1_body">Willem De Kooning</h1>
-          <br>
-          <h2 class="h2_body">A "ground truth" case study</h2>
-          <br>
-          <h2 class="h2_body">How much can we trust our data and results?</h2>
-        </div>
-        <p class="p_body" style="text-align: justify; margin-top: -2em;" >We initiated our analysis with Willem de Kooning upon encountering the <span class="bold"><a style="color: black;" href="https://www.dekooning.org/" target="none">online portal of the foundation</a></span> dedicated to the artist. This website encompasses comprehensive information regarding the artist's works, sales, exhibitions, bibliographies, and more. </p>
-        
-          <h2 class="h2_body" style="margin-top: 6%;">REPRESENTATIVENESS OF DATA</h2>
-          <h2 class="h2_body">Exhibitions data</h2>
-          <p class="p_body">We found <span style="font-weight: bold;">131 exhibitions</span> on the Willem de Kooning Foundation's website, only <span style="font-weight: bold;">81 had catalogues</span>. From <span style="font-weight: bold;">BnF</span> and <span style="font-weight: bold;">Google Books API</span>, we extracted <span style="font-weight: bold;">31 exhibition records</span>. This suggests that only <span style="font-weight: bold;">39%</span> of catalogued exhibitions and <span style="font-weight: bold;">23%</span> of total exhibitions were covered in our dataset. It's worth noting that the extracted records include exhibitions beyond one-man shows.
-            </p>
-
             <div class="row">
               <div class="col-md-6">
-                <canvas id="vennDiagram" width="400" height="400"></canvas>
+                <br />
+                <h2
+                  style="
+                    color: #352f36;
+                    font-family: Roboto;
+                    text-align: center;
+                  "
+                >
+                  Reputation is not popularity
+                </h2>
+                <p style="font-family: Roboto">
+                  By reputation we mean the economic and cultural value of the
+                  artist's figure, which is defined through his positioning in
+                  the art market, the number of studies and publications about
+                  him and the number of exhibitions.
+                </p>
 
-                <script>
-                    window.onload = function() {
-                        var canvas = document.getElementById("vennDiagram");
-                        var ctx = canvas.getContext("2d");
-        
-                        // Draw large circle
-                        ctx.beginPath();
-                        ctx.arc(200, 200, 150, 0, 2 * Math.PI);
-                        ctx.fillStyle = "#87CEEB"; // Light sky blue
-                        ctx.fill();
-                        ctx.closePath();
-        
-                        // Draw small circle
-                        ctx.beginPath();
-                        ctx.arc(180, 250, 80, 0, 2 * Math.PI);
-                        ctx.fillStyle = "#4682B4"; // Dark slate blue
-                        ctx.fill();
-                        ctx.closePath();
-        
-                        // Write text
-                        ctx.fillStyle = "black";
-                        ctx.font = "14px Arial";
-                        ctx.fillText("131 exhibitions", 220, 150);
-                        ctx.fillText("81 catalogues", 115, 280);
-                    };
-                </script>
               </div>
-              <div class="col-md-6"></div>
+     
+              <div class="col-md-6">
+                <br />
+                <h2
+                  style="
+                    color: #352f36;
+                    font-family: Roboto;
+                    text-align: center;
+                  "
+                >
+                  What are we looking for?
+                </h2>
+                <p style="font-family: Roboto">
+                  We want to check the relationship between the estimation of an
+                  artist in the
+                  <span style="font-weight: bold">economic dimension</span> of
+                  the art market and in the
+                  <span style="font-weight: bold">cultural dimension</span> of
+                  the general public.
+                </p>
+              </div>
             </div>
+          </div>
+            <br>
+            <br>
+            <div>
+        </div>
+        <div class="section">
+            <h2 class="h2_body" style="color: #352f36">
+              What data do we need to observe?
+            </h2>
+            <br />
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Utilizza col-md-6 per far sì che ciascuna card occupi metà della larghezza su dispositivi di dimensioni medie e superiori -->
+            <div class="panel">
+              <div class="image-container">
+                <img
+                  src="blue.png"
+                  style="width: 38vw; margin-left: 6vw"
+                  class="image-front"
+                  id="try"
+                />
+                <div class="image-front-text" id="front1">Economic data</div>
+                <div class="image-back" id="back1">
+                  <p>Sales of the most important</p>
+                  <p>auction houses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <!-- Utilizza col-md-6 per far sì che ciascuna card occupi metà della larghezza su dispositivi di dimensioni medie e superiori -->
+            <div class="panel">
+              <div class="image-container">
+                <img
+                  src="pink.png"
+                  style="width: 38vw; margin-right: 5vw"
+                  class="image-front"
+                  id="try"
+                />
+                <div class="image-front-text" id="front2">Cultural data</div>
+                <div class="image-back" id="back2">
+                  <p>Exhibition records</p>
+                  <p>Editorial publications</p>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+</div>
+<div class="section">
+          <div class="panel" data-color="white" id="first">
+            <br />
+            <br />
+            <h2 class="h2_body" style="color: #352f36">
+              Chosen data sources:
+            </h2>
+
+            <div class="row" style="padding: 3%">
+              <div class="col-md-3 d-flex align-items-stretch">
+                <div class="card border-primary mb-3" style="max-width: 18rem">
+                  <a
+                    href="https://www.dekooning.org/"
+                    target="_blank"
+                    style="color: transparent"
+                  >
+                    <div class="card-body text-primary">
+                      <h5 class="card-title">De Kooning Foundation</h5>
+                      <p class="card-text">
+                        A complete digital resource with everything about Willem
+                        De Kooning.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 d-flex align-items-stretch">
+                <div class="card border-success mb-3" style="max-width: 18rem">
+                  <a
+                    href="https://github.com/jasonshi10/art_auction_valuation"
+                    target="_blank"
+                    style="color: transparent"
+                  >
+                    <div class="card-body text-success">
+                      <h5 class="card-title">Blouin Art Sales Index</h5>
+                      <p class="card-text">
+                        Exaustive database with art auction records 
+                        from over 350 auction houses.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 d-flex align-items-stretch">
+                <div class="card border-warning mb-3" style="max-width: 18rem">
+                  <a
+                    href="https://catalogue.bnf.fr/index.do"
+                    target="_blank"
+                    style="color: transparent"
+                  >
+                    <div class="card-body text-warning">
+                      <h5 class="card-title">BnF</h5>
+                      <p class="card-text">
+                        A vast digital library preserving international cultural
+                        heritage through extensive collections and archives.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3 d-flex align-items-stretch">
+                <div class="card border-danger mb-3" style="max-width: 18rem">
+                  <a
+                    href="https://developers.google.com/books?hl=en"
+                    target="_blank"
+                    style="color: transparent"
+                  >
+                    <div class="card-body text-danger">
+                      <h5 class="card-title">Google Books API</h5>
+                      <p class="card-text">
+                        Interface granting access to Google Books' vast
+                        collection, enabling search, retrieval, and integration.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+<div class="section">
+        <div class="panel" data-color="white" id="title_a">
+          <h2 class="h2_body" style="color: #352f36">
+            The two case studies:
+          </h2>
+
+        </div>
+
+        <div class="row flex">
+          <div class="col-md-6">
+            <div class="panel"><a href="https://en.wikipedia.org/wiki/Willem_de_Kooning">
+              <img src="DKport.png" style="width: 50%; margin-left: 12vw" />
+              <img
+                src="kooning_frima.png"
+                style="width: 50%; margin-left: 12vw"
+              /></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel"> <a href="https://en.wikipedia.org/wiki/Gustav_Klimt">
+              <img src="Gkport.png" style="width: 37%; margin-left: 12vw" />
+              <img
+                src="klimt_firma.png"
+                style="width: 40%; margin-left: 12vw"
+              /></a>
+            </div>
+          </div>
+        </div>
+
+</div>
+<div class="section">
+        <div class="panel" data-color="white" id="first">
+          <br />
+          <br />
+          <h2 class="h2_body" style="color: rgb(26, 24, 24)">
+            Why did we choose those two artists?
+          </h2>
+          <div class="row flex">
+            <div class="col-md-6">
+          <p class="p_body"></p>
+          <ul class="p_body">
+            <li class="p_body">
+              Quantitative similarity in auction data, enabling us to conduct a
+              <span style="font-weight: bold">balanced comparison</span>.
+            </li>
+            <li class="p_body">
+              Similar <span style="font-weight: bold">time coverage</span> of
+              the data period of our datasets.
+            </li>
+          </ul>
           <br>
-          <br>
-          <h2 class="h2_body">HOW MANY DE KOONING EXHIBITIONS <br>ARE COVERED IN THE BIBLIOGRAPHY?</h2>
-          <br>
-         
-          <div class="container" style="display: flex; justify-content: center; align-items: center; ">
-            <h2 class="h2_body" style="margin-right: 10rem;">BnF and Google Books</h2>
+          <br />
+          </div>
+          <div class="col-md-6">
+          <h2 class="h2_body" style="color: #352f36; margin-top: 2em">
+            Top 10 artists number of auctions in our dataset
+          </h2>
+
+          <div class="plot" id="div_myChart1">
+            <canvas id="myChart1" width="700" height="350"></canvas>
+            <p id="chartCaption" style="color: #352f36; font-size: 14px">
+              Chart 1: Number of auctions for every artist on the dataset.
+            </p>
+            </div>
+
+            <script>
+              // Load the CSV data
+              fetch("data/greater_10_filtered.csv")
+                .then((response) => response.text())
+                .then((csvData) => {
+                  const data = [];
+                  const labels = [];
+                  const colors = []; // Aggiungi un array per memorizzare i colori delle barre
+
+                  const rows = csvData.trim().split("\n").slice(1); // Skip the header
+
+                  rows.forEach((row) => {
+                    const [artist, numAuctions] = row.split(",");
+                    labels.push(artist);
+                    data.push(parseInt(numAuctions));
+
+                    // Imposta il colore delle barre in base all'artista
+                    if (
+                      artist === "Gustav Klimt" ||
+                      artist === "Willem de Kooning"
+                    ) {
+                      colors.push("#86469C"); // Viola scuro
+                    } else {
+                      colors.push("#C783DD"); // Viola chiaro sbiadito
+                    }
+                  });
+
+                  // Create the chart
+                  const ctx = document
+                    .getElementById("myChart1")
+                    .getContext("2d");
+                  const myChart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                      labels: labels,
+                      datasets: [
+                        {
+                          label: "Number of Auctions",
+                          data: data,
+                          backgroundColor: colors, // Usa i colori calcolati per le barre
+                        },
+                      ],
+                    },
+                    options: {
+                      scales: {
+                        xAxes: [
+                          {
+                            ticks: {
+                              autoSkip: false,
+                              maxRotation: 45,
+                              minRotation: 45,
+                              fontColor: "#352f36",
+                            },
+                            gridLines: {
+                              color: "gray",
+                            },
+                          },
+                        ],
+                        yAxes: [
+                          {
+                            ticks: {
+                              fontColor: "#352f36",
+                            },
+                            gridLines: {
+                              color: "gray",
+                            },
+                          },
+                        ],
+                      },
+                      title: {
+                        display: true,
+                        text: "Auctions performed by artist",
+                        fontColor: "#352f36",
+                      },
+                      legend: {
+                        labels: {
+                          fontColor: "#352f36",
+                        },
+                      },
+                    },
+                  });
+                });
+            </script>
+          </div>
+          </div>
+        </div>
+      </section>
+        <!-- De Kooning section -->
+<section>
+        <div class="panel" data-color="violet">
+          <div class="sectioncontainer">
+            <div class="sectioncontainer1">
+              <p></p>
+            </div>
+            <div class="sectioncontainer2">
+                <img src="partDK1.png" id="part1" />
+                <img src="partDK2.png" id="part2" />
+                <div class="space">
+                  <h1 class="h1_body">Willem De Kooning</h1>
+                  <br />
+                  <h2 class="h3_body">A "ground truth" case study</h2>
+                  <br />
+                  <h2 class="h2_body">
+                    How much can we trust our data and results?
+                  </h2>
+              <p class="p_body" style="text-align: justify">
+                We initiated our analysis with Willem de Kooning upon encountering
+                the
+                <span class="bold"
+                  ><a
+                    style="color: black"
+                    href="https://www.dekooning.org/"
+                    target="none"
+                    >online portal of the foundation</a
+                  ></span
+                >
+                dedicated to the artist. This website encompasses comprehensive
+                information regarding the artist's works, sales, exhibitions,
+                bibliographies, and more.
+              </p>
+            </div>
+        </div>
+        </div>
+        <div class="row flex" id="repre">
+        <div class="col-md-6">
+          <h2 class="h2_body" style="margin-top: 6%">
+            REPRESENTATIVENESS OF DATA
+          </h2>
+          <h2 class="h2_body">Exhibitions data</h2>
+          <p class="p_body">
+            We found <span style="font-weight: bold">131 exhibitions</span> on
+            the Willem de Kooning Foundation's website, only
+            <span style="font-weight: bold">81 had catalogues</span>. From
+            <span style="font-weight: bold">BnF</span> and
+            <span style="font-weight: bold">Google Books API</span>, we
+            extracted
+            <span style="font-weight: bold">31 exhibition records</span>. This
+            suggests that only <span style="font-weight: bold">39%</span> of
+            catalogued exhibitions and
+            <span style="font-weight: bold">23%</span> of total exhibitions were
+            covered in our dataset. It's worth noting that the extracted records
+            include exhibitions beyond one-man shows.
+          </p>
+          </div>
+          <div class="col-md-6">
+              <div id="treemap" style="width: 500px; height: 400px"></div>
+              <script>
+                var data = [
+                  {
+                    type: "treemap",
+                    labels: ["exhibitions", "catalogue", "no-catalogues"],
+                    parents: ["", "exhibitions", "exhibitions"],
+                    values: [131, 81, 50],
+                    marker: {
+                      colors: ["#1f77b4", "#ff7f0e", "#2ca02c"],
+                    },
+                    textinfo: "label+value",
+                  },
+                ];
+
+                Plotly.newPlot("treemap", data);
+              </script>
+            </div>
+            </div>
+            </div>
+    
+          <br />
+          <br />
+          <h2 class="h2_body">
+            HOW MANY DE KOONING EXHIBITIONS <br />ARE COVERED IN THE
+            BIBLIOGRAPHY?
+          </h2>
+          <br />
+
+          <div
+            class="container"
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <h2 class="h2_body" style="margin-right: 10rem">
+              BnF and Google Books
+            </h2>
             <h2 class="h2_body">De Kooning Foundation</h2>
           </div>
 
-          <div class="container" style="display: flex; justify-content: center; align-items: center;">
+          <div
+            class="container"
+            style="display: flex; justify-content: center; align-items: center"
+          >
             <div class="plot" id="div_myChart9">
-
               <canvas id="myChart9" width="100" height="50"></canvas>
-              <p id="chartCaption9" style="color: #352f36; font-size: 14px; margin-top: 5px;">
-                  Distribution of Exhibition in Foundation data
+              <p
+                id="chartCaption9"
+                style="color: #352f36; font-size: 14px; margin-top: 5px"
+              >
+                Distribution of Exhibition in Foundation data
               </p>
             </div>
 
-  
             <div class="plot" id="div_myChart0">
-              
               <canvas id="myChart0" width="100" height="50"></canvas>
-              <br>
-              <p id="chartCaption0" style="color: #352f36; font-size: 14px; margin-top: 5px;">
-                  Distribution of Exhibition in BnF and Google Books API
+              <br />
+              <p
+                id="chartCaption0"
+                style="color: #352f36; font-size: 14px; margin-top: 5px"
+              >
+                Distribution of Exhibition in BnF and Google Books API
               </p>
             </div>
           </div>
-      
 
-            <script>
-              // Data for De Kooning online
-              var sizes_dk_online = [30, 145];
-              var labels_dk_online = ['Exhibitions', 'Not Exhibition'];
-              var colors_dk_online = ['#B53302', '#E97D01'];
-              var var_dk_perc = ["17.1%", "82.9%"];
-          
-              // Data for De Kooning website
-              var sizes_dk_website = [145, 42];
-              var labels_dk_website = ['Exhibitions cat. in website', 'Other texts'];
-              var colors_dk_website = ['#B53302','#E97D01'];
-              var var_k_perc = ["70.8%", "29.2%"];
-          
+          <script>
+            // Data for De Kooning online
+            var sizes_dk_online = [30, 145];
+            var labels_dk_online = ["Exhibitions", "Not Exhibition"];
+            var colors_dk_online = ["#B53302", "#E97D01"];
+            var var_dk_perc = ["17.1%", "82.9%"];
 
-             // Chart for De Kooning online
-            var ctx0 = document.getElementById('myChart0').getContext('2d');
+            // Data for De Kooning website
+            var sizes_dk_website = [145, 42];
+            var labels_dk_website = [
+              "Exhibitions cat. in website",
+              "Other texts",
+            ];
+            var colors_dk_website = ["#B53302", "#E97D01"];
+            var var_k_perc = ["70.8%", "29.2%"];
+
+            // Chart for De Kooning online
+            var ctx0 = document.getElementById("myChart0").getContext("2d");
             var myChart0 = new Chart(ctx0, {
-                type: 'doughnut',
-                data: {
-                    datasets: [{
-                        data: sizes_dk_online,
-                        backgroundColor: colors_dk_online,
-                        label: ''
-                    }],
-                    labels: labels_dk_online
-                },
-                
+              type: "doughnut",
+              data: {
+                datasets: [
+                  {
+                    data: sizes_dk_online,
+                    backgroundColor: colors_dk_online,
+                    label: "",
+                  },
+                ],
+                labels: labels_dk_online,
+              },
             });
 
-
-              // Chart for De Kooning website
-              var ctx1 = document.getElementById('myChart9').getContext('2d');
-              var myChart1 = new Chart(ctx1, {
-                  type: 'doughnut',
-                  data: {
-                      datasets: [{
-                          data: sizes_dk_website,
-                          backgroundColor: colors_dk_website,
-                          label: ''
-                      }],
-                      labels: labels_dk_website
+            // Chart for De Kooning website
+            var ctx1 = document.getElementById("myChart9").getContext("2d");
+            var myChart1 = new Chart(ctx1, {
+              type: "doughnut",
+              data: {
+                datasets: [
+                  {
+                    data: sizes_dk_website,
+                    backgroundColor: colors_dk_website,
+                    label: "",
                   },
-              });
-
-
-
-
+                ],
+                labels: labels_dk_website,
+              },
+            });
           </script>
-
- 
-        </div>
+        
 
         <div class="panel" data-color="violet">
           <h2 class="h2_body">What is the percentage of completeness?</h2>
           <div class="counter p_body" data-count="35">0</div>
         </div>
-
-             
-      </div>
+      </section>
+      <section>
       <div class="panel" data-color="indigo">
-        <div class="space">
-          <h1 class="h1_body">Klimt vs De Kooning</h1>
-          <br>
-          <h2 class="h2_body">A case study comparison</h2>
-          <br>
-          <h2 class="h2_body">Is there a correlation?</h2>
-          <p class="p_body">Now that we know the accuracy and completeness percentage of the open data we have, we can move on to a phase of comparing the research results between Willem De Kooning and Gustav Klimt.</p>
-          <br>
-          <br>
-          <h2 class="h2_body">AUCTIONS DATA</h2>
-          <p class="p_body"> Our analyses focus on the relationship between the number of works sold, price trends, and their averages over the years 2000-2010.</p>
-        </div>
+        <div class="sectioncontainer">
+          <div class="sectioncontainer3">
         
+            <h1 class="h1_body">Klimt vs De Kooning</h1>
+            <br />
+            <h2 class="h3_body">A case study comparison</h2>
+            <br />
+            <h2 class="h2_body">Is there a correlation?</h2>
+            <p class="p_body">
+              Now that we know the accuracy and completeness percentage of the
+              open data we have, we can move on to a phase of comparing the
+              research results between Willem De Kooning and Gustav Klimt.
+            </p>
+  </div>
+          <div class="sectioncontainer4">
+            <p></p>
+          </div>
+
+</div>
+<div class="auctions">
+  <div class="decoleft"></div>
+          <h2 class="h2_body">AUCTIONS DATA</h2>
+          <p class="p_body">
+            Our analyses focus on the relationship between the number of works
+            sold, price trends, and their averages over the years 2000-2010.
+          </p>
+        </div>
+
         <div class="row flex">
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
-            <h2 class="h2_body" style="margin-top: 1rem;">SALES PER YEAR</h2>
-            <h2 class="h2_body">How many sales of works per year for the two artists?</h2>
-            <p>In the common span time (2008-2014) Klimt has seen a diminishing amount of sellings while the inverse can be considered for De Kooning, even though in the last year considered (2014) De Kooning’s sellings were half of those performed in the previous year.</p>
-            </div>
-            <div class="col-md-5">
+          <div class="col-md-6">
+            <h2 class="h2_body" style="margin-top: 1rem">SALES PER YEAR</h2>
+            <h2 class="h2_body">
+              How many sales of works per year for the two artists?
+            </h2>
+            <p>
+              In the common span time (2008-2014) Klimt has seen a diminishing
+              amount of sellings while the inverse can be considered for De
+              Kooning, even though in the last year considered (2014) De
+              Kooning’s sellings were half of those performed in the previous
+              year.
+            </p>
+          </div>
+          <div class="col-md-6">
             <div class="plot" id="div_myChart3">
               <canvas id="myChart3" width="280" height="150"></canvas>
-              <p id="chartCaption" >
+              <p id="chartCaption">
                 Questa è una caption descrittiva per il grafico
               </p>
             </div>
-            <div class="col-md-1"></div>
-        
-            
+    
 
             <script>
               // Load the CSV data
-              fetch('data/selling_per_year.csv')
-                  .then(response => response.text())
-                  .then(csvData => {
-                      const labels = [];
-                      const deKooningCount = [];
-                      const klimtCount = [];
-                      const rows = csvData.trim().split('\n').slice(1); // Skip the header
-      
-                      rows.forEach(row => {
-                          const [soldTime, deKooning, klimt] = row.split(',');
-                          labels.push(soldTime);
-                          deKooningCount.push(parseInt(deKooning));
-                          klimtCount.push(parseInt(klimt));
-                      });
-      
-                      // Create the chart
-                      const ctx = document.getElementById('myChart3').getContext('2d');
-                      const myChart = new Chart(ctx, {
-                          type: 'line',
-                          data: {
-                              labels: labels,
-                              datasets: [
-                                  {
-                                      label: 'De Kooning Count',
-                                      data: deKooningCount,
-                                      borderColor: '#E97D01',
-                                      backgroundColor: 'rgba(0, 0, 0, 0)'
-                                  },
-                                  {
-                                      label: 'Klimt Count',
-                                      data: klimtCount,
-                                      borderColor: '#26408B',
-                                      backgroundColor: 'rgba(0, 0, 0, 0)'
-                                  }
-                              ]
-                          },
-                          options: {
-                              title: {
-                                  display: true,
-                                  text: 'Counts Over Time',
-                                  fontColor: '#352f36'
-                              },
-                              legend: {
-                                  labels: {
-                                      fontColor: '#352f36'
-                                  }
-                              },
-                              scales: {
-                                  xAxes: [{
-                                      scaleLabel: {
-                                          display: true,
-                                          labelString: 'Sold Time',
-                                          fontColor: '#352f36'
-                                      },
-                                      ticks: {
-                                          fontColor: '#352f36'
-                                      }
-                                  }],
-                                  yAxes: [{
-                                      scaleLabel: {
-                                          display: true,
-                                          labelString: 'Count',
-                                          fontColor: '#352f36'
-                                      },
-                                      ticks: {
-                                          fontColor: '#352f36'
-                                      }
-                                  }]
-                              }
-                          }
-                      });
+              fetch("data/selling_per_year.csv")
+                .then((response) => response.text())
+                .then((csvData) => {
+                  const labels = [];
+                  const deKooningCount = [];
+                  const klimtCount = [];
+                  const rows = csvData.trim().split("\n").slice(1); // Skip the header
+
+                  rows.forEach((row) => {
+                    const [soldTime, deKooning, klimt] = row.split(",");
+                    labels.push(soldTime);
+                    deKooningCount.push(parseInt(deKooning));
+                    klimtCount.push(parseInt(klimt));
                   });
+
+                  // Create the chart
+                  const ctx = document
+                    .getElementById("myChart3")
+                    .getContext("2d");
+                  const myChart = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                      labels: labels,
+                      datasets: [
+                        {
+                          label: "De Kooning Count",
+                          data: deKooningCount,
+                          borderColor: "#E97D01",
+                          backgroundColor: "rgba(0, 0, 0, 0)",
+                        },
+                        {
+                          label: "Klimt Count",
+                          data: klimtCount,
+                          borderColor: "#26408B",
+                          backgroundColor: "rgba(0, 0, 0, 0)",
+                        },
+                      ],
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: "Counts Over Time",
+                        fontColor: "#352f36",
+                      },
+                      legend: {
+                        labels: {
+                          fontColor: "#352f36",
+                        },
+                      },
+                      scales: {
+                        xAxes: [
+                          {
+                            scaleLabel: {
+                              display: true,
+                              labelString: "Sold Time",
+                              fontColor: "#352f36",
+                            },
+                            ticks: {
+                              fontColor: "#352f36",
+                            },
+                          },
+                        ],
+                        yAxes: [
+                          {
+                            scaleLabel: {
+                              display: true,
+                              labelString: "Count",
+                              fontColor: "#352f36",
+                            },
+                            ticks: {
+                              fontColor: "#352f36",
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  });
+                });
             </script>
-          
           </div>
         </div>
 
-        <h2 class="h2_body" style="margin-top: 2rem;">Comparison between the average prices of the two artists</h2>
+        <h2 class="h2_body" style="margin-top: 2rem">
+          Comparison between the average prices of the two artists
+        </h2>
         <div>
-          <img src="output.png" style="width: 69vw; margin-top: 5%; border-radius: 15px;">
+          <img
+            src="output.png"
+            style="width: 69vw; margin-top: 5%; border-radius: 15px"
+          />
         </div>
-
-        <h2 class="h2_body" style="margin-top: 2rem;">PUBLICATIONS DATA</h2>
-        <p class="p_body"> eknfcsàvmòodsvdsùpkvmaà</p>
-      <h2 class="h2_body" style="margin-top: 2rem;">How many bibliographic publications per year for the two artists?</h2>
-      <div class="plot" id="div_myChart5">
-        <canvas id="myChart5" width="700" height="350"></canvas>
+<div class="publications">
+        <h2 class="h2_body" style="margin-top: 2rem">PUBLICATIONS DATA</h2>
+        <p class="p_body">The purpose of bibliographic analysis is to consider the trend of publications over time, distinguishing between exhibition catalogs and others.</p>
+        <div class="decoright"></div>
+</div>
+        <div class="row flex">
+          <div class="col-md-6">
+        <div class="plot" id="div_myChart5">
+          <canvas id="myChart5" width="700" height="350"></canvas>
           <p id="chartCaption">
             Questa è una caption descrittiva per il grafico
           </p>
-      
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-        
 
-        <script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+          <script>
             // Load data from CSV file
-            fetch('../docs/data/comparison_publication_per_year.csv')
-                .then(response => response.text())
-                .then(csvData => {
-                    // Parse CSV data using PapaParse
-                    const parsedData = Papa.parse(csvData, { header: true });
+            fetch("../docs/data/comparison_publication_per_year.csv")
+              .then((response) => response.text())
+              .then((csvData) => {
+                // Parse CSV data using PapaParse
+                const parsedData = Papa.parse(csvData, { header: true });
 
-                    // Initialize variables to store data
-                    const years = {};
+                // Initialize variables to store data
+                const years = {};
 
-                    // Process parsed CSV data
-                    parsedData.data.forEach(row => {
-                        const year = row.date;
-                        const category = row.category;
+                // Process parsed CSV data
+                parsedData.data.forEach((row) => {
+                  const year = row.date;
+                  const category = row.category;
 
-                        // Increment publication count for the category and year
-                        if (!years[year]) years[year] = { 'DK': 0, 'K': 0 };
-                        years[year][category]++;
-                    });
-
-                    // Extract dates and counts for each category
-                    const dates = Object.keys(years).sort();
-                    const countsDK = dates.map(date => years[date]['DK']);
-                    const countsK = dates.map(date => years[date]['K']);
-
-                    // Create the chart
-                    const ctx = document.getElementById('myChart5').getContext('2d');
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: dates,
-                            datasets: [{
-                                label: 'De Kooning Count',
-                                backgroundColor: '#E97D01',
-                                data: countsDK,
-                            }, {
-                                label: 'Klimt Count',
-                                backgroundColor: '#26408B',
-                                data: countsK,
-                            }]
-                        },
-                        options: {
-                            title: {
-                                display: true,
-                                text: 'Distribution of Publication Years',
-                                fontColor: '#352f36'
-                            },
-                            legend: {
-                                labels: {
-                                    fontColor: '#352f36'
-                                }
-                            },
-                            scales: {
-                                xAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Date',
-                                        fontColor: '#352f36'
-                                    },
-                                    ticks: {
-                                        fontColor: '#352f36'
-                                    }
-                                }],
-                                yAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Count',
-                                        fontColor: '#352f36'
-                                    },
-                                    ticks: {
-                                        fontColor: '#352f36',
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading data:', error);
+                  // Increment publication count for the category and year
+                  if (!years[year]) years[year] = { DK: 0, K: 0 };
+                  years[year][category]++;
                 });
-        </script>
-      </div>
 
-      <h2 class="h2_body" style="margin-top: 2rem;">EXHIBITIONS DATA</h2>
-      <p class="p_body">This section checks how many bibliographic records are actually in the exhibition catalogues. Since no type of publication or genre was specified/extracted from data, we manually recognized exhibition catalogues by extracting specific keywords from the title. </p>
-      <br>
-      <h2 class="h2_body" style="margin-top: 2rem;">How many exhibitions per year for the two artists?</h2> 
-      <div class="plot" id="div_myChart6">
-        <canvas id="myChart6" width="700" height="350"></canvas>
-        <p id="chartCaption">
-            Questa è una caption descrittiva per il grafico
-        </p>
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    
-        <script>
-          // Load data from CSV file
-          fetch('../docs/data/comparison_exhibition_per_year.csv')
-              .then(response => response.text())
-              .then(csvData => {
-                  // Parse CSV data using PapaParse
-                  const parsedData = Papa.parse(csvData, { header: true });
-  
-                  // Initialize variables to store data
-                  const years = {};
-  
-                  // Process parsed CSV data
-                  parsedData.data.forEach(row => {
-                      const year = row.date;
-                      const exhibitionsDK = parseFloat(row['Exhibitions DK']) || 0;
-                      const exhibitionsK = parseFloat(row['Exhibitions K']) || 0;
-  
-                      // Store exhibition counts for the year
-                      years[year] = { 'DK': exhibitionsDK, 'K': exhibitionsK };
-                  });
-  
-                  // Extract dates and counts for each category
-                  const dates = Object.keys(years).sort();
-                  const countsDK = dates.map(date => years[date]['DK']);
-                  const countsK = dates.map(date => years[date]['K']);
-  
-                  // Create the chart
-                  const ctx = document.getElementById('myChart6').getContext('2d');
-                  new Chart(ctx, {
-                      type: 'line', // Tipo di grafico: linea
-                      data: {
-                          labels: dates,
-                          datasets: [{
-                              label: 'De Kooning Exhibitions',
-                              borderColor: '#E97D01', // Colore del bordo
-                              fill: false, // Disabilita il riempimento sotto la linea
-                              data: countsDK,
-                          }, {
-                              label: 'Klimt Exhibitions',
-                              borderColor: '#26408B', // Colore del bordo
-                              fill: false, // Disabilita il riempimento sotto la linea
-                              data: countsK,
-                          }]
+                // Extract dates and counts for each category
+                const dates = Object.keys(years).sort();
+                const countsDK = dates.map((date) => years[date]["DK"]);
+                const countsK = dates.map((date) => years[date]["K"]);
+
+                // Create the chart
+                const ctx = document
+                  .getElementById("myChart5")
+                  .getContext("2d");
+                new Chart(ctx, {
+                  type: "bar",
+                  data: {
+                    labels: dates,
+                    datasets: [
+                      {
+                        label: "De Kooning Count",
+                        backgroundColor: "#E97D01",
+                        data: countsDK,
                       },
-                      options: {
-                          title: {
-                              display: true,
-                              text: 'Distribution of Exhibition Years',
-                              fontColor: '#352f36'
+                      {
+                        label: "Klimt Count",
+                        backgroundColor: "#26408B",
+                        data: countsK,
+                      },
+                    ],
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: "Distribution of Publication Years",
+                      fontColor: "#352f36",
+                    },
+                    legend: {
+                      labels: {
+                        fontColor: "#352f36",
+                      },
+                    },
+                    scales: {
+                      xAxes: [
+                        {
+                          scaleLabel: {
+                            display: true,
+                            labelString: "Date",
+                            fontColor: "#352f36",
                           },
-                          legend: {
-                              labels: {
-                                  fontColor: '#352f36'
-                              }
+                          ticks: {
+                            fontColor: "#352f36",
                           },
-                          scales: {
-                              xAxes: [{
-                                  scaleLabel: {
-                                      display: true,
-                                      labelString: 'Date',
-                                      fontColor: '#352f36'
-                                  },
-                                  ticks: {
-                                      fontColor: '#352f36'
-                                  }
-                              }],
-                              yAxes: [{
-                                  scaleLabel: {
-                                      display: true,
-                                      labelString: 'Count',
-                                      fontColor: '#352f36'
-                                  },
-                                  ticks: {
-                                      fontColor: '#352f36',
-                                      beginAtZero: true
-                                  }
-                              }]
-                          }
-                      }
-                  });
+                        },
+                      ],
+                      yAxes: [
+                        {
+                          scaleLabel: {
+                            display: true,
+                            labelString: "Count",
+                            fontColor: "#352f36",
+                          },
+                          ticks: {
+                            fontColor: "#352f36",
+                            beginAtZero: true,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                });
               })
-              .catch(error => {
-                  console.error('Error loading data:', error);
+              .catch((error) => {
+                console.error("Error loading data:", error);
               });
-        </script>
-      </div>
+          </script>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="h2_body" style="margin-top: 2rem">
+            How many bibliographic publications per year for the two artists?
+          </h2>
+          </div>
+          <div class="exhibitions">
+            <div class="decoleft"></div>
+        <h2 class="h2_body" style="margin-top: 2rem">EXHIBITIONS DATA</h2>
+        <p class="p_body">
+          This section checks how many bibliographic records are actually in the
+          exhibition catalogues. Since no type of publication or genre was
+          specified/extracted from data, we manually recognized exhibition
+          catalogues by extracting specific keywords from the title.
+        </p>
+        </div>
+        <br />
+        <div class="row flex">
+        <div class="col-md-6">
+        <h2 class="h2_body" style="margin-top: 2rem">
+          How many exhibitions per year for the two artists?
+        </h2>
+        </div>
+        <div class="col-md-6">
+        <div class="plot" id="div_myChart6">
+          <canvas id="myChart6" width="700" height="350"></canvas>
+          <p id="chartCaption">
+            Questa è una caption descrittiva per il grafico
+          </p>
 
-      </div>
-        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
-   
+          <script>
+            // Load data from CSV file
+            fetch("../docs/data/comparison_exhibition_per_year.csv")
+              .then((response) => response.text())
+              .then((csvData) => {
+                // Parse CSV data using PapaParse
+                const parsedData = Papa.parse(csvData, { header: true });
+
+                // Initialize variables to store data
+                const years = {};
+
+                // Process parsed CSV data
+                parsedData.data.forEach((row) => {
+                  const year = row.date;
+                  const exhibitionsDK = parseFloat(row["Exhibitions DK"]) || 0;
+                  const exhibitionsK = parseFloat(row["Exhibitions K"]) || 0;
+
+                  // Store exhibition counts for the year
+                  years[year] = { DK: exhibitionsDK, K: exhibitionsK };
+                });
+
+                // Extract dates and counts for each category
+                const dates = Object.keys(years).sort();
+                const countsDK = dates.map((date) => years[date]["DK"]);
+                const countsK = dates.map((date) => years[date]["K"]);
+
+                // Create the chart
+                const ctx = document
+                  .getElementById("myChart6")
+                  .getContext("2d");
+                new Chart(ctx, {
+                  type: "line", // Tipo di grafico: linea
+                  data: {
+                    labels: dates,
+                    datasets: [
+                      {
+                        label: "De Kooning Exhibitions",
+                        borderColor: "#E97D01", // Colore del bordo
+                        fill: false, // Disabilita il riempimento sotto la linea
+                        data: countsDK,
+                      },
+                      {
+                        label: "Klimt Exhibitions",
+                        borderColor: "#26408B", // Colore del bordo
+                        fill: false, // Disabilita il riempimento sotto la linea
+                        data: countsK,
+                      },
+                    ],
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: "Distribution of Exhibition Years",
+                      fontColor: "#352f36",
+                    },
+                    legend: {
+                      labels: {
+                        fontColor: "#352f36",
+                      },
+                    },
+                    scales: {
+                      xAxes: [
+                        {
+                          scaleLabel: {
+                            display: true,
+                            labelString: "Date",
+                            fontColor: "#352f36",
+                          },
+                          ticks: {
+                            fontColor: "#352f36",
+                          },
+                        },
+                      ],
+                      yAxes: [
+                        {
+                          scaleLabel: {
+                            display: true,
+                            labelString: "Count",
+                            fontColor: "#352f36",
+                          },
+                          ticks: {
+                            fontColor: "#352f36",
+                            beginAtZero: true,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                });
+              })
+              .catch((error) => {
+                console.error("Error loading data:", error);
+              });
+          </script>
+        </div>
+        </div></div>
+      </div>
+</section>
+<section>
       <div class="panel" data-color="red">
         <h2 class="h1_body">Results</h2>
       </div>
-    </div>
-
-    <footer>
-      <div class="container-fluid">
+</section>
+      <footer>
+        <div class="container-fluid">
           <div class="row">
-            <div class="col-md-5">
-              <p>ReputationEra is an academic project for the exam of Information Visualization 2023/2024 held by Professor Marilena Daquino. </p>
+            <h6>Team</h6>
+            <div class="elementfooter1">
               
-              <p>This work is distributed with the license <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribuzione - Non commerciale - Non opere derivate 3.0 Unported</a>.</p>
-              <br>
-              <a rel="license" class="icon-link" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"></a>
+              <br />
+              <div class="button">
+              <button class="btn btn-outline-light" id="contact-button">
+                <span class="person-name">Erica Andreose</span>
+                <a
+                  href="https://github.com/EricaAndreose"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/erica-andreose-1535a7201/"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </button>
+              </div>
+              <div class="button">
+              <button class="btn btn-outline-light" id="contact-button">
+                <span class="person-name">Giorgia Crosilla</span>
+                <a
+                  href="https://github.com/giorgiacrosilla"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/giorgia-crosilla-9b563a215/"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </button>
+              </div>
+              <div class="button">
+              <button class="btn btn-outline-light" id="contact-button">
+                <span class="person-name">Daniele Spedicati</span>
+                <a
+                  href="https://github.com/SpedicatiDaniele"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/daniele-spedicati-ab02081a0/"
+                  target="_blank"
+                  class="icon-link"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </button>
+              </div>
             </div>
-            <div class="col-md-3">
-              <h6 style="font-family: paint4;">Contacts</h6>
-              <br>
-              <p><a href="https://www.unibo.it/it" target="_blank" class="icon-link">Alma Mater Studiorum Università di Bologna</a></p>
-              <br>
-              <p><a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge" target="_blank" class="icon-link">Digital Humanities and Digital Knowledge</a></p>
-              <br>
-              <p><a href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047" target="_blank" class="icon-link">Information Visualization</a></p>
-              <br>
-              <a href="#top"><button type="button" class="btn btn-outline-light">Back to the top</button></a>
+            <div class="elementfooter">
+              <h6 style="font-family: paint4">Contacts</h6>
+              <br />
+              <p>
+                <a
+                  href="https://www.unibo.it/it"
+                  target="_blank"
+                  class="icon-link"
+                  >Alma Mater Studiorum Università di Bologna</a
+                >|
+                <a
+                  href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge"
+                  target="_blank"
+                  class="icon-link"
+                  >Digital Humanities and Digital Knowledge</a
+                >|
+                <a
+                  href="https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2023/467047"
+                  target="_blank"
+                  class="icon-link"
+                  >Information Visualization</a
+                >
+              </p>
+              <a href="#top"
+                ><button type="button" class="btn btn-outline-light">
+                  Back to the top
+                </button></a
+              >
             </div>
-            <div class="col-md-3">
-              <h6>Team</h6>
-              <br>
-              <button class="btn btn-outline-light" id="contact-button">
-                  <span class="person-name">Erica Andreose</span>
-                  <a href="https://github.com/EricaAndreose" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
-                  <a href="https://www.linkedin.com/in/erica-andreose-1535a7201/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
-              </button>
-              <br>
-              <button class="btn btn-outline-light" id="contact-button">
-                  <span class="person-name">Giorgia Crosilla</span>
-                  <a href="https://github.com/giorgiacrosilla" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
-                  <a href="https://www.linkedin.com/in/giorgia-crosilla-9b563a215/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
-              </button>
-              <br>
-              <button class="btn btn-outline-light" id="contact-button">
-                  <span class="person-name">Daniele Spedicati</span>
-                  <a href="https://github.com/SpedicatiDaniele" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
-                  <a href="https://www.linkedin.com/in/daniele-spedicati-ab02081a0/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
-              </button>
-              
-                
+            <div class="elementfooter">
+              <p>
+                ReputationEra is an academic project for the exam of Information
+                Visualization 2023/2024 held by Professor Marilena Daquino.
+              </p>
+
+              <p>
+                This work is distributed with the license
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                  target="_blank"
+                  >Creative Commons Attribuzione - Non commerciale - Non opere
+                  derivate 3.0 Unported</a
+                >.
+              </p>
+              <br />
+              <a
+                rel="license"
+                class="icon-link"
+                href="http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                target="_blank"
+                ><img
+                  alt="Licenza Creative Commons"
+                  style="border-width: 0"
+                  src="https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png"
+              /></a>
             </div>
           </div>
-          <br>
-          <p style="text-align: center; font-size: smaller;">&copy; Copyright 2024 Erica Andreose, Giorgia Crosilla, Daniele Spedicati - IV project - DHDK - Alma Mater Studiorum Bologna</p>
-      </div>
-
-  </footer>
-
-
+          <br />
+          <p style="text-align: center; font-size: smaller">
+            &copy; Copyright 2024 Erica Andreose, Giorgia Crosilla, Daniele
+            Spedicati - IV project - DHDK - Alma Mater Studiorum Bologna
+          </p>
+        </div>
+        
+      </footer>
+    </div>
+    </body>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scroll_index.js"></script>
     <script src="scroll_change.js"></script>
@@ -784,6 +1075,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="rotate.js"></script>
     <script src="counter.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
