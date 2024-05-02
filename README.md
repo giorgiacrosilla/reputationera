@@ -1,6 +1,6 @@
 # ReputationEra
 
-<p style="color:red;">inserire link binder</p>
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/giorgiacrosilla/reputationera/HEAD?labpath=..%2Ftobesent%2Freputation_era.ipynb)
 
 The project aims at exploring the oscillations in reputation that different artists face analyzing and comparing economic and cultural data. The project focuses on two case studies: Willem de Kooning and Gustav Klimt.
 
