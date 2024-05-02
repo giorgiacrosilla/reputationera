@@ -932,7 +932,7 @@
         </div>
         <div class="col-md-6">
         <div class="plot" id="div_myChart6">
-          <canvas id="myChart6" width="700" height="350"></canvas>
+          <canvas id="myChart6" width="500" height="250"></canvas>
           <p id="chartCaption">
             Questa è una caption descrittiva per il grafico
           </p>
@@ -946,6 +946,7 @@
               .then((csvData) => {
                 // Parse CSV data using PapaParse
                 const parsedData = Papa.parse(csvData, { header: true });
+                
 
                 // Initialize variables to store data
                 const years = {};
@@ -953,8 +954,8 @@
                 // Process parsed CSV data
                 parsedData.data.forEach((row) => {
                   const year = row.date;
-                  const exhibitionsDK = parseFloat(row["Exhibitions DK"]) || 0;
-                  const exhibitionsK = parseFloat(row["Exhibitions K"]) || 0;
+                  const exhibitionsDK = parseFloat(row["Exhibitions De Kooning"]) || 0;
+                  const exhibitionsK = parseFloat(row["Exhibitions Klimt"]) || 0;
 
                   // Store exhibition counts for the year
                   years[year] = { DK: exhibitionsDK, K: exhibitionsK };
@@ -962,8 +963,8 @@
 
                 // Extract dates and counts for each category
                 const dates = Object.keys(years).sort();
-                const countsDK = dates.map((date) => years[date]["DK"]);
-                const countsK = dates.map((date) => years[date]["K"]);
+                const countsDK = dates.map((date) => years[date]?.DK || 0);
+                const countsK = dates.map((date) => years[date]?.K || 0);
 
                 // Create the chart
                 const ctx = document
@@ -1034,7 +1035,8 @@
               });
           </script>
         </div>
-        </div></div>
+        </div>
+      </div>
       </div>
 </section>
 <section>
