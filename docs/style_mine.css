@@ -422,12 +422,12 @@ a {
 
 #div_myChart0 {
   display: inline-block;
-
   background-color: aliceblue;
   border-radius: 15px;
   width: 30%;
-
+  height: 35vw;
   padding: 2%;
+  margin-top: 2%;
 }
 
 #div_myChart9 {
@@ -538,4 +538,8 @@ li.p_body {
 .row {
   margin-top: 4%;
   margin-bottom: 4%;
+}
+
+#per_icon {
+  text-align: left;
 }

@@ -272,15 +272,15 @@
             </li>
           </ul>
           <br>
-          <br />
+   
           </div>
           <div class="col-md-6">
-          <h2 class="h2_body" style="color: #352f36; margin-top: 2em">
+          <h2 class="h2_body" style="color: #352f36;">
             Top 10 artists number of auctions in our dataset
           </h2>
 
           <div class="plot" id="div_myChart1">
-            <canvas id="myChart1" width="700" height="350"></canvas>
+            <canvas id="myChart1" width="500" height="350"></canvas>
             <p id="chartCaption" style="color: #352f36; font-size: 14px">
               Chart 1: Number of auctions for every artist on the dataset.
             </p>
@@ -378,7 +378,7 @@
         <div class="panel" data-color="violet">
           <div class="sectioncontainer">
             <div class="sectioncontainer1">
-              <p></p>
+              
             </div>
             <div class="sectioncontainer2">
                 <img src="partDK1.png" id="part1" />
@@ -387,7 +387,7 @@
                   <h1 class="h1_body">Willem De Kooning</h1>
                   <br />
                   <h2 class="h3_body">A "ground truth" case study</h2>
-                  <br />
+
                   <h2 class="h2_body">
                     How much can we trust our data and results?
                   </h2>
@@ -411,6 +411,9 @@
         </div>
         <div class="row flex" id="repre">
         <div class="col-md-6">
+          <br>
+          <br>
+          <br>
           <h2 class="h2_body" style="margin-top: 6%">
             REPRESENTATIVENESS OF DATA
           </h2>
@@ -431,7 +434,11 @@
           </p>
           </div>
           <div class="col-md-6">
-              <div id="treemap" style="width: 500px; height: 400px"></div>
+            <br>
+              <div id="treemap" style="width: 500px; height: 400px"><p id="chartCaption" style="color: #352f36; font-size: 14px; margin: -12%;">
+                Chart 2: De Kooning exhibitions distribution.
+              </p></div>
+              
               <script>
                 var data = [
                   {
@@ -451,9 +458,7 @@
             </div>
             </div>
             </div>
-    
-          <br />
-          <br />
+
           <h2 class="h2_body">
             HOW MANY DE KOONING EXHIBITIONS <br />ARE COVERED IN THE
             BIBLIOGRAPHY?
@@ -478,7 +483,7 @@
               <canvas id="myChart9" width="100" height="50"></canvas>
               <p
                 id="chartCaption9"
-                style="color: #352f36; font-size: 14px; margin-top: 5px"
+                style="color: #352f36; font-size: 14px; margin-top: 12%; text-align: center;"
               >
                 Distribution of Exhibition in Foundation data
               </p>
@@ -489,7 +494,7 @@
               <br />
               <p
                 id="chartCaption0"
-                style="color: #352f36; font-size: 14px; margin-top: 5px"
+                style="color: #352f36; font-size: 14px; margin-top: 5px; text-align: center;"
               >
                 Distribution of Exhibition in BnF and Google Books API
               </p>
@@ -545,10 +550,10 @@
             });
           </script>
         
-
+        <br>
         <div class="panel" data-color="violet">
-          <h2 class="h2_body">What is the percentage of completeness?</h2>
-          <div class="counter p_body" data-count="35">0</div>
+          <h2 class="h2_body">The percentage of completeness of our open datasets is:</h2>
+          <div class="counter p_body" data-count="35">0</div><i class="fa-solid fa-percent"></i>
         </div>
       </section>
       <section>
@@ -556,10 +561,10 @@
         <div class="sectioncontainer">
           <div class="sectioncontainer3">
         
-            <h1 class="h1_body">Klimt vs De Kooning</h1>
+            <h1 class="h1_body" style="margin-top: -1%;">Klimt vs <br>De Kooning</h1>
             <br />
             <h2 class="h3_body">A case study comparison</h2>
-            <br />
+            
             <h2 class="h2_body">Is there a correlation?</h2>
             <p class="p_body">
               Now that we know the accuracy and completeness percentage of the
@@ -587,6 +592,7 @@
             <h2 class="h2_body">
               How many sales of works per year for the two artists?
             </h2>
+            <br>
             <p>
               In the common span time (2008-2014) Klimt has seen a diminishing
               amount of sellings while the inverse can be considered for De
@@ -599,7 +605,7 @@
             <div class="plot" id="div_myChart3">
               <canvas id="myChart3" width="280" height="150"></canvas>
               <p id="chartCaption">
-                Questa è una caption descrittiva per il grafico
+                Chart 3: Sales trend of the two artists per year.
               </p>
             </div>
     
